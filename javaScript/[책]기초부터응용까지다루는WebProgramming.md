@@ -1180,14 +1180,362 @@ function exam7_9(KOR, ENG, MAT, number_of_subject) {
 </form>
 ```
 
+## 5. Function 문 Return 값
+- return 문은 선언적 함수에서 처리한 값을 반환하는 명령문
+- 생략가능하지만 처리 값을 반환하고자 할 경우 function 문의 유효범위(Scope) 안에 선언되어야 한다.
+```
+function 함수이름(매개변수) {
+  함수 구문;
+  return 리턴수식;
+}
+```
+- 여기서 매개변수는 가인수
+- 예시
+  ```
+  [정의]
+  function exam7_10(KOR, ENG, MAT, number_of_subject) {
+    var score = 0;
+    document.write("학생의 국어점수는 " + KOR + "점입니다.<br>");
+    document.write("학생의 영어점수는 " + ENG + "점입니다.<br>");
+    document.write("학생의 수학점수는 " + MAT + "점입니다.<br>");
+    score = (KOR + ENG + MAT) / number_of_subject; 
+    return score;
+  }
+  
+  [호출]
+  result = exam7_10(85, 95, 90, 3);
+  document.write("학생의 국영수 평균점수는 " + result + "점입니다.");
+  ```
 
+## 6. 기타 Function 문
+### 6-1. 자바스크립트의 function 문 변수 스코프(Scope)
+```
+[지역변수 정의]
+function exam7_11(x, y) {
+  var z = 0; // 지역변수
+  document.write("x의 값은 " + x + "입니다.<br>");
+  document.write("y의 값은 " + y + "입니다.<br>");
+  z = x * y;
+  return z; 
+}
 
+[전역변수 정의]
+result = exam7_11(10, 30); // 전역변수
+document.write("x * y = " + result + "입니다.<br>");
+```
 
+### 6-2. 자바스크립트의 콜백 함수(Callback Function)
+- 매개변수로 전달하는 함수
+```
+[정의]
+function exam7_12(function_call) {
+  for(k = 0; k < 10; k++) {
+    document.write("콜백 함수 " + k + "번째 호출입니다. <br>");
+    function_call();
+  }
+}
 
+[호출]
+var function_call = function() {
+  alert("콜백 함수 호출");
+}
+exam7_12(function_call);
+```
 
+### 6-3. 자바스크립트의 클로저(Closure)
+1. 클로저(Closure)
+   - 함수가 종료된 후라도 지역변수가 소멸되지 않고 해당 지역변수를 액세스할 수 있도록 지역변수를 제거하지 않고 남겨두는 현상
+   - 리턴된 함수 자체
+   ```
+   function exam7_13(name) {
+     var k = "당신의 이름은 " + name + "입니다.<br>";
+   }
+   document.write(k); // 함수 종료 후에 지역변수 k 가 소멸상태 -> 오류 발생
+   ```
+2. 클로저 실습1
+   - 클로저로 지정하게 되면 함수 종료 후에도 지역변수 k를 다시 활용할 수 있다.
+   ```
+   [함수 선언]
+   function exam7_14(name) {
+     var k = "당신의 이름은 " + name + "입니다.<br>";
+     return function () {
+       document.write(k);
+     }
+   }
+   
+   [출력]
+   exam7_14("홍길동")();
+   exam7_14("김유신")();
+   exam7_14("이순신")();
+   ```
+3. 클로저 실습2
+   - output1(), output2(), output()3 함수를 호출하게 되면 지역변수 k가 그대로 남겨져 다시 활용할 수 있다.
+   ```
+   [함수 선언]
+   function exam7_15(name) {
+     var k = "당신의 이름은 " + name + "입니다.<br>";
+     return function () {
+       document.write(k);
+     }
+   }
+   
+   [변수 선언]
+   var output1 = exam7_15("홍길동")();
+   var output2 = exam7_15("김유신")();
+   var output3 = exam7_15("이순신")();
+   
+   [함수 호출]
+   output1();
+   output2();
+   output3();
+   ```
 
+# Chapter08 자바스크립트 Form
+## 1. Form 객체
+### 1-1. 자바스크립트의 웹 폼(Form)
+- 폼을 통해 입력된 데이터를 서버로 전송 -> 전송한 데이터를 웹 서버가 처리 -> 결과에 따른 또 다른 웹 페이지를 보여주는 역할
+- 폼 태그 동작
+  1. 웹 페이지의 폼 방문
+  2. 폼 내용 입력
+  3. 내용의 데이터 웹 서버로 전송
+  4. 전송받은 웹 서버가 폼 내용의 데이터를 웹 프로그램으로 전송
+  5. 웹 프로그램에서 폼 내용의 데이터 처리
+  6. 처리한 결과의 새로운 웹 페이지를 웹 서버로 전송
+  7. 웹 서버가 받은 새로운 웹 페이지를 브라우저에게 전송
+  8. 웹 브라우저가 웹 페이지를 사용자에게 보여줌
 
+### 1-2. 자바스크립트 웹 문서의 주요 폼(Form) 요소
+- \<form> 태그
+  - 웹 문서에서 사용자의 입력을 서버로 전달하는 기능
+  - \<form> 태그를 이용하여 구현할 때 사용
+- \<input> 태그
+  - 한 줄 정도의 짧은 텍스트를 입력받는 텍스트 박스
+- \<fieldset> 태그
+  - 특정 범위의 영역에 있는 요소와 레이블을 그룹으로 묶어 네모 박스를 만들 때 사용
+- \<label> 태그
+  - 데이터 입력 필드의 캡션을 만들 때 사용
+- \<textarea> 태그
+  - 한 줄 이상의 긴 문장을 입력받는 텍스트 박스
+- \<select> 태그, \<option> 태그
+  - 드롭박스 메뉴를 만들 때 사용
+- \<optgroup> 태그
+  - 셀렉트 박스의 옵션 내용을 그룹을 만들 때 사용
 
+### 1-3. 자바스크립트 Form 객체
+- 자바스크립트의 웹 폼 문서를 사용하기 위해 HTML5의 \<body> \</body> 태그 사이에 \<form> \</form> 태그를 사용해서 나타낸다.
+1. 일반 형식
+```
+<form name = "웹 문서 폼 이름" action = "nothing" method = "post 혹은 get">
+..
+</form>
+```
+- name : 웬도우 객체에 들어 있는 모든 프레임을 나타내는 속성 이름
+- action : 사용자가 입력한 데이터를 처리할 프로그래밍 URL 경로나 문서
+- method : 입력된 내용의 전송 방식을 지정하는 속성
+  - post 
+    - HTTP로 데이터를 전송하는 표준입력 방식
+    - 입력 폼이 서버로 전송될 때 사용
+    - ex) 방명록, 게시판
+  - get 
+    - URL로 데이터를 전송하는 입력 방식
+    - 입력 폼의 내용에 대한 결과를 서버로부터 가져와 사용자에게 보여줌
+    - ex) 검색 엔진의 검색 결과, 방문횟수 카운터
+- elements : 입력폼의 요소(텍스트, 버튼, 체크박스, 라디오 버튼, 보내기 버튼, 리셋 버튼)를 나타내는 속성
+ 
+2. 웹 \<form> 태그 실습
+```
+[함수선언]
+function exam8_1() {
+  var idata;
+  idata = "action 속성: " + document.iform.action + " ==> " +
+          "method 속성: " + document.iform.method;
+  alert(idata);
+}
+
+<form name = "iform" action = "학습예제 7-15.html" method = "post">
+  <input type = "button" value = "웹 입력폼 속성확인" onClick = "exam8_1()" />
+</form>
+```
+
+### 1-4. 자바스크립트의 Form 객체에 대한 메서드
+1. submit 및 reset 객체 일반 형식
+```
+<input type = "submit" value = "전송">
+<input type = "reset" value = "리셋">
+```
+- submit 객체는 사용자가 웹 폼에서 입력한 데이터들을 웹 서버로 전송하는 기능
+- reset 객체는 사용자가 웹 폼에서 입력한 데이터들을 리셋(reset) 시키는 기능
+- submit() 메서드와 reset() 메서드가 가지는 이벤트 핸들러 기능
+  - onSubmit()
+    - 전송 버튼을 클릭했을 때 발생하는 이벤트 핸들러 기능
+  - onReset() 
+    - 리셋 버튼을 클릭했을 때 발생하는 이벤트 핸들러 기능  
+
+2. onReset() 메서드 실습
+```
+[함수 선언]
+function Reset(form) {
+  form.iname.value = "이름을 다시 입력하세요.";
+  form.iaddress.value = "주소를 다시 입력하세요.";
+}
+
+<form name = "iform" action = "학습예제 8-1.html" method = "post">
+  이름 : <input type = "text" name = "iname"> <br> <br>
+  주소 : <input type = "text" name = "iaddress"> <br> <br>
+  <input type = "reset" value = "리셋" onClick = "Reset(this.form);  return false;" />
+</form>
+```
+
+## 2. Form 객체 컨트롤 종류
+### 2-1. 자바스크립트의 Form 컨트롤 종류
+- 자바스크립트의 Form 객체는 웹 문서를 동적으로 꾸밀 때 가장 널리 쓰인다.
+- 동적 기능
+  - 버튼이나 링크 또는 이미지를 클릭
+  - 마우스로 움직일 때 이벤트에 응답하고 사용자에 의해 동적으로 상호 작용하는 기능
+1. \<input> 태그
+```
+<input type = "text" name = "id" size = "12" value = "아이디" />
+<input type = "password" name = "passwd" size = "10" value = "비밀번호" />
+```
+- \<input type = "text">
+  - 텍스트 입력 폼 박스 생성
+- \<input type = "password">
+  - 패스워드 입력 폼 생성
+  - 입력 시 데이터를 못 보도록 숨기는 기능 -> 비밀번호 입력 시 주로 사용
+- \<input type = "hidden">
+  - 화면에 value 값을 디스플레이할 때 안보이도록 숨기는 기능
+- \<input type = "button">
+  - 입력을 위한 버튼 입력 폼 생성
+- \<input type = "checkbox">
+  - 입력을 위한 체크박스 버튼 입력 폼 생성
+- \<input type = "radio">
+  - 입력을 위한 라디오 버튼 입력 폼 생성
+- \<input type = "file">
+  - 파일 업로드 입력 폼 생성
+- \<input type = "submit">
+  - 웹 폼에서 입력한 데이터들을 웹 서버에 전송하는 버튼 생성
+- \<input type = "reset">
+  - 웹 폼에서 입력한 데이터들을 리셋시키는 버튼 생성      
+- \<input> 태그 실습
+```
+<head>
+  <script type = "text/javascript">
+    function Display() {
+      var userINFO;
+      var uID = document.userForm.userID.value;
+      var uPW = document.userForm.userPW.value;
+      userINFO = uID + "\n" + uFW;
+      alert(userINFO);
+    }
+    function Reset(form) {
+      form.userID.value = "사용자 아이디";
+      form.userFW.vaalue = "사용자 비밀번호";
+    }
+  </script>
+</head>
+<body>
+  <fieldset>
+    <form name = "userForm" method = "get" action = "학습예제 8-2.html">
+      <label>아이디: <input type = "text" name = "userID" size = "12" value = "아이디" /></label>
+      <label>비밀번호: <input type = "password" name = "userFW" size = "10" value = "비밀번호" /><label>
+      <input type = "submit" value = "확인" onClick = "Display()" />
+      <input type = "reset" value = "리셋" onClick = "Rest(this.form) ; return false;" />
+    </form>
+  </fieldset>
+</body>
+```
+
+2. \<label> 태그
+- \<label> 태그로 묶은 요소의 텍스트는 클릭하면 동작을 토글할 수 있게 해준다.
+- \<label> 태그의 for 속성은 다른 요소의 레이블과 연결시켜 주는 역할을 한다.
+```
+<fieldset>
+  <label for = "name">성명</label>
+  <input type = "text" name = "name">
+  <input type = "submit" value = "확인">
+</fieldset>
+```
+
+3. \<fieldset> 태그와 \<legend> 태그
+- \<fieldset> 태그
+  - 특정 범위의 영역에 있는 요소와 레이블을 그룹으로 묶어 네모 박스를 만들어주는 태그
+- \<legend> 태그
+  - 네모 박스 테두리 사이에 글자가 들어갈 내용을 입력하여 \<fieldset> 태그 영역의 제목을 나타내주는 태그
+```
+<fieldset>
+  <legend>웹 폼 요소</legend>
+     성명: <input type = "text" /><br />
+     직업: <input type = "text" /><br />
+</fieldset>
+```
+
+4. \<textarea> 태그
+- 여러 줄을 입력할 수 있는 텍스트 박스를 만들어 주는 태그
+```
+<textarea rows = "3" cols = "50" name = "AA"></textarea>
+```
+- rows = "3" -> 입력할 행의 수
+- cols = 50" -> 입력할 열의 수
+
+5. \<select> 태그
+- 웹 폼에서 선택 메뉴를 만들어주는 태그
+```
+<select name = "menu" size = 4>
+  <option value = "0. 돈까스">0. 돈까스
+  <option value = "1. 피자">1. 피자
+  <option value = "2. 햄버거">2. 햄버거
+  <option value = "3. 치킨">3. 치킨
+</select>
+```
+- name = "menu" -> 선택 메뉴의 이름을 지정
+- value -> 선택 요소의 이름을 지정
+
+6. \<optgroup> 태그
+- 셀렉트 박스의 옵션 내용을 그룹을 만들어 주는 태그
+```
+<select name = "menu">
+  <optgroup label = "직업 분류">
+    <option value = "공무원">공무원</option>
+    <option value = "회사원">회사원</option>
+    <option value = "자영업">자영업</option>
+  </optgroup>
+  <optgroup label = "업종 분류">
+    <option value = "판매업">판매업</option>
+    <option value = "생산업">생산업</option>
+    <option value = "광고업">광고업</option>
+  </optgroup>
+</select>
+```
+- name = "menu" -> 선택 메뉴의 이름을 지정
+- value -> 선택 요소의 이름을 지정
+- optgroup label -> 옵션 그룹을 분류하는 이름을 지정
+  
+### 2-2. 자바스크립트의 \<input> 태그 속성
+1. \<input> 태그의 type="password" 속성
+- 입력 컨트롤에 데이터 입력 시 내용을 알 수 없도록 점으로 나타나게 하는 기능
+```
+<input type = "password" name = "passwd" value = "비밀번호" />
+```
+2. \<input> 태그의 type = "button" 속성
+- 버튼 입력 폼 컨트롤 기능
+```
+<input type = "button" name = "ok" value = "확인 버튼" onClick=Display() />
+```
+3. \<input> 태그의 type = "checkbox" 속성
+- 체크박스 버튼 입력 폼 컨트롤 기능
+```
+<input type = "checkbox" name = "job" value = "직업" />
+```
+4. \<input> 태그의 type = "radio" 속성
+- 라디오 버튼 입력 폼 컨트롤 기능
+```
+<input type = "radio" name = "sex" value = "성별" />
+```
+5. \<input> 태그의 type = "file" 속성
+- 파일 업로드 입력 컨트롤 기능
+```
+<input type = "file" name = "fileNAME" size = 100 />
+```
 
 
 
