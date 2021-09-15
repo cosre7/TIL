@@ -7,40 +7,40 @@
 ## 소스코드
 - OthersOOP.java
 
-```
-import java.io.FileWriter;
-import java.io.IOException;
- 
-public class OthersOOP {
- 
-    public static void main(String[] args) throws IOException {
-        // class : System, Math, FileWriter
-        // instance : f1, f2 -> f1이 가리키고 있는 값, f2가 가리키고 있는 값이 인스턴스
-        // Math클래스 : 수학과 관련된 기능들이 모여있는 클래스
-         
-        System.out.println(Math.PI); // Math 클래스 안에 있는 PI라는 변수 -> 값 : 3.14~~
-        System.out.println(Math.floor(1.8)); // Math 클래스 안에 소수점 내림 기능을 가지고 있는 메서드
-        System.out.println(Math.ceil(1.8)); // Math 클래스 안에 소수점 올림 기능을 가지고 있는 메서드
-         
-        FileWriter f1 = new FileWriter("data.txt"); // 어떤 정보를 파일에 기록할 때 사용하는 클래스 // 파일이 없는 경우를 대비해 예외처리 throws IOException
-        // "data.txt" -> 저장하고 싶은 파일의 이름
-        // new FileWriter("data.txt") -> "data.txt"에 파일을 저장하겠다. 라고 하는 상태를 가지고 있는 FileWriter라는 클래스의 복제본 생성
-        f1.write("Hello");
-        f1.write(" Java"); 
-        // Hello와 Java가 기록된 data.txt라는 파일이 만들어진다.
-         
-        FileWriter f2 = new FileWriter("data2.txt"); // FileWriter의 또다른 복제본인 f2 생성
-        // f2 : data2.txt 파일에 내용을 저장하겠다! 라는 상태를 가진 FileWriter의 복제본
-        f2.write("Hello");
-        f2.write(" Java2");
-        f2.close();
-         
-        f1.write("!!!");
-        f1.close();
-    }
- 
-}
-```   
+  ```
+  import java.io.FileWriter;
+  import java.io.IOException;
+
+  public class OthersOOP {
+
+      public static void main(String[] args) throws IOException {
+          // class : System, Math, FileWriter
+          // instance : f1, f2 -> f1이 가리키고 있는 값, f2가 가리키고 있는 값이 인스턴스
+          // Math클래스 : 수학과 관련된 기능들이 모여있는 클래스
+
+          System.out.println(Math.PI); // Math 클래스 안에 있는 PI라는 변수 -> 값 : 3.14~~
+          System.out.println(Math.floor(1.8)); // Math 클래스 안에 소수점 내림 기능을 가지고 있는 메서드
+          System.out.println(Math.ceil(1.8)); // Math 클래스 안에 소수점 올림 기능을 가지고 있는 메서드
+
+          FileWriter f1 = new FileWriter("data.txt"); // 어떤 정보를 파일에 기록할 때 사용하는 클래스 // 파일이 없는 경우를 대비해 예외처리 throws IOException
+          // "data.txt" -> 저장하고 싶은 파일의 이름
+          // new FileWriter("data.txt") -> "data.txt"에 파일을 저장하겠다. 라고 하는 상태를 가지고 있는 FileWriter라는 클래스의 복제본 생성
+          f1.write("Hello");
+          f1.write(" Java"); 
+          // Hello와 Java가 기록된 data.txt라는 파일이 만들어진다.
+
+          FileWriter f2 = new FileWriter("data2.txt"); // FileWriter의 또다른 복제본인 f2 생성
+          // f2 : data2.txt 파일에 내용을 저장하겠다! 라는 상태를 가진 FileWriter의 복제본
+          f2.write("Hello");
+          f2.write(" Java2");
+          f2.close();
+
+          f1.write("!!!");
+          f1.close();
+      }
+
+  }
+  ```   
 - 클래스
   - 변수와 메서드들이 많아지면서 생겨난 것 
   - 같은 주제를 가진 변수와 메서드들을 그룹화한 껍데기
@@ -443,7 +443,7 @@ public class StaticApp {
   }
 }
 ```
--instance f1 
+- instance f1 
   - class Foo를 원형으로 하기 때문에 멤버들을 복제해온다.
   - static String classVar
     - 클래스소속이기 때문에 f1에는 실제 값이 존재하지 않고 Foo라는 클래스를 가리키고 있을 뿐이다.
@@ -463,10 +463,124 @@ public class StaticApp {
 - 인스턴스를 생성할 때 해야 할 초기화 작업을 정의하는 생성자에 대해 알아본다.
 
 ## 소스코드
+- OthersOOP.java
+
+  ```
+  import java.io.FileWriter;
+  import java.io.IOException;
+
+  public class OthersOOP {
+
+      public static void main(String[] args) throws IOException {
+          // class : System, Math, FileWriter
+          // instance : f1, f2 -> f1이 가리키고 있는 값, f2가 가리키고 있는 값이 인스턴스
+          // Math클래스 : 수학과 관련된 기능들이 모여있는 클래스
+
+          System.out.println(Math.PI); // Math 클래스 안에 있는 PI라는 변수 -> 값 : 3.14~~
+          System.out.println(Math.floor(1.8)); // Math 클래스 안에 소수점 내림 기능을 가지고 있는 메서드
+          System.out.println(Math.ceil(1.8)); // Math 클래스 안에 소수점 올림 기능을 가지고 있는 메서드
+
+          FileWriter f1 = new FileWriter("data.txt"); // 어떤 정보를 파일에 기록할 때 사용하는 클래스 // 파일이 없는 경우를 대비해 예외처리 throws IOException
+          // "data.txt" -> 수정하고 싶은 파일의 이름
+          // FileWriter클래스 : 파일을 수정한다는 행위를 나타내는 클래스 -> 수정하고자 하는 파일이 반드시 지정되어 있어야만 한다.
+          // 파일을 지정하는 행위를 까먹거나 나중에 하게되면 문제가 생길 수 있다. -> 인스턴스를 지정하는 시점에 파일을 지정한다면 안전!
+          f1.write("Hello");
+          f1.write(" Java"); 
+          // Hello와 Java가 기록된 data.txt라는 파일이 만들어진다.
+
+          FileWriter f2 = new FileWriter("data2.txt"); // FileWriter의 또다른 복제본인 f2 생성
+          // f2 : data2.txt 파일에 내용을 저장하겠다! 라는 상태를 가진 FileWriter의 복제본
+          f2.write("Hello");
+          f2.write(" Java2");
+          f2.close();
+
+          f1.write("!!!");
+          f1.close();
+      }
+
+  }
+  ```   
+- 인스턴스 생성과 동시에 처리해야 하는 작업이나 초기값이 있을 수 있다. -> 생성자를 이용한다.
+
+- MyOOP.java (원래)
+  ```
+  public class MyOOP {
+      public static void main(String[] args) {
+          Print p1 = new Print();
+          p1.delimiter = "----"; // -> 까먹을 수 있는 부분 => 생성자를 이용해보자!
+          p1.A();
+          p1.A();
+          p1.B();
+          p1.B();
+
+          Print p2 = new Print();
+          p2.delimiter = "****";
+          p2.A();
+          p2.A();
+          p2.B();
+          p2.B();
+
+          p1.A();
+          p2.A();
+          p1.A();
+          p2.A();
+      }
+  }
+  ```
+
+- MyOOP.java
+- 인스턴스를 생성할 때 delimiter 값을 지정하지 않으면 Print 클래스가 인스턴스화되지 못하도록 하게 되면 사용자가 실수할 가능성을 원천적으로 차단할 수 있다. 
+- -> 생성자를 이용하자! 
+  ```
+  public class MyOOP {
+      public static void main(String[] args) {
+          Print p1 = new Print("----");
+          p1.A();
+          p1.A();
+          p1.B();
+          p1.B();
+
+          Print p2 = new Print("****");
+          p2.A();
+          p2.A();
+          p2.B();
+          p2.B();
 
 
+          p1.A();
+          p2.A();
+          p1.A();
+          p2.A();
+      }
+  }
+  ```
 
-
+- Print 클래스가 인스턴스화될 때 delimiter를 인자로 반드시 받는 형태로 만들고 싶다!
+- Print.java
+  ```
+  class Print {
+    public String delimiter = ""; // 인스턴스에서 사용하기 위해 static 제거
+ 
+    public Print(String _delimiter) { // 클래스와 같은 이름의 메서드를 하나 만든다 -> 생성자
+      // Print 클래스가 인스턴스화 될 때 실행되어야 할 코드를 constructor 메서드 안에 정의하는 것을 통해 초기화의 목적을 달성할 수 있다. 
+      this.delimiter = _delimiter;
+    }
+    
+    public void A() { // 인스턴스에서 사용하기 위해 static 제거
+      System.out.println(this.delimiter); // this. 생략 가능하지만 있는게 더 정확
+      System.out.println("A");
+      System.out.println("A");
+    }
+ 
+    public void B() { // 인스턴스에서 사용하기 위해 static 제거
+      System.out.println(this.delimiter);
+      System.out.println("B");
+      System.out.println("B");
+    }
+  }
+  ```
+  - this : 생성한 인스턴스를 가리키는 이름
+    - this는 Print 클래스가 인스턴스화 되었을 때의 클래스를 가리킨다.
 
 
 
