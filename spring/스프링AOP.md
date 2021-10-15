@@ -249,3 +249,46 @@ public void afterLogging(Object retVal, JoinPoint joinPoint) {
 - `String toLongString()` - 메서드를 완전하게 표현한 문장을 구한다. (메서드의 리턴 타입, 파라미터 타입 모두 표시)
 - `String toShortString()` - 메서드를 축약해서 표현한 문장을 구한다. (기본 구현은 메서드의 이름만)
 
+## 설정
+### Aspect 클래스
+```
+@Component
+@Aspect
+public class LoggingAspect {
+
+  private static Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
+  
+  @Around
+  ..
+}
+```
+
+### pom.xml
+```
+* 추가 *
+<!-- cglib -->
+<dependency>
+    <groupId>cglib</groupId>
+    <artifactId>cglib</artifactId>
+    <version>2.2</version>
+</dependency>
+
+* 변경 *
+<!-- AspectJ -->
+<dependency>
+  <groupId>org.aspectj</groupId>
+  <artifactId>aspectjweaver</artifactId>
+  <version>${org.aspectj-version}</version>
+</dependency>
+```
+
+### servlet-context.xml
+```
+* Namespaces 수정 * 
+![image](https://user-images.githubusercontent.com/76677629/137421713-a5d0d6b6-5947-40e6-a79f-40a3766d14f0.png)
+- aop 체크
+
+* Source 추가 *
+<!-- aop 태그 -->
+<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+```
