@@ -447,3 +447,138 @@ loop: true(무한 반복), false(숨김)
 ```
 ![image](https://user-images.githubusercontent.com/76677629/138198729-00c633f9-a183-4057-a437-b8e68ed4abb7.png)
 
+## 테이블 위치
+```
+<table width="200" height="100" border="5" align="left">
+        <tr>
+            <td>왼쪽 정렬</td>
+        </tr>
+    </table>
+    <br><br><br><br><br>
+    <table width="200" height="100" border="5" align="center">
+        <tr>
+            <td>가운데 정렬</td>
+        </tr>
+    </table>
+    <table width="200" height="100" border="5" align="right">
+        <tr>
+            <td>오른쪽 정렬</td>
+        </tr>
+    </table>
+```
+![image](https://user-images.githubusercontent.com/76677629/138223087-2f85aae7-9ce0-417a-bdf7-623e5b37b5cc.png)
+
+## 테이블 배경
+```
+<body>
+    <table width="200" height="100" border="5" bgcolor="purple">
+        <tr>
+            <td>bgcolor</td>
+        </tr>
+    </table>
+    <br><br><br><br><br>
+    <table width="200" height="100" border="5" background="image.jpg">
+        <tr>
+            <td>background</td>
+        </tr>
+    </table>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138223362-5555a925-1d58-4dd2-923f-55af37820d46.png)
+
+## 테이블 캡션 넣기
+```
+<body>
+    <table width="200" height="100" border="1">
+        <caption>테이블 캡션</caption>
+        <tr>
+            <td>테이블1</td>
+        </tr>
+        <tr>
+            <td>테이블2</td>
+        </tr>
+        <tr>
+            <td>테이블3</td>
+        </tr>
+    </table>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138223595-4e3c90d6-2102-4649-a87c-bf7d84cad0b7.png)
+
+# 셀 속성 설정과 변경
+## 테이블 셀 크기 지정
+```
+<body>
+    <table width="200" height="100" border="5">
+        <tr>
+            <td width="20">첫번째 셀</td>
+            <td>두번째 셀</td>
+        </tr>
+        <tr>
+            <td>세번째 셀</td>
+            <td>네번째 셀</td>
+        </tr>
+    </table>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138224285-c1be9e38-d509-4a17-b9fe-cb2606831ffe.png)
+
+## 셀 내용 정렬
+```
+<body>
+    <table width="400" height="100" border="5">
+        <tr>
+            <td align="left">첫번째 셀</td>
+            <td align="center">두번째 셀</td>
+            <td align="right">세번째 셀</td>
+        </tr>
+    </table>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138224591-ae710cd5-64fe-4da0-940d-d73c12f537cc.png)
+
+## 제목 셀 만들기
+```
+<body>
+    <table width="400" height="100" border="1">
+        <tr><th>제목셀</th></tr>
+        <tr><td align="left">첫번째 셀</td></tr>
+        <tr><td align="center">두번째 셀</td></tr>
+        <tr><td align="right">세번째 셀</td></tr>
+    </table>
+</body>
+=> <th></th> 태그는 가운데 정렬, 볼드체
+```
+![image](https://user-images.githubusercontent.com/76677629/138224788-dccf765a-4c2f-4ec2-877b-54ff2f4c88fd.png)
+
+## 셀 가로로 합치기
+```
+<body>
+    <table width="400" height="100" border="1">
+        <tr>
+            <td colspan="2">첫 번째 셀</td>
+        </tr>
+        <tr>
+            <td align="left">두번째 셀</td>
+            <td align="center">세번째 셀</td>
+        </tr>
+    </table>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138225483-d2e0b1ee-6dbb-4248-aded-60bdbf7b0304.png)
+
+## 셀 세로로 합치기
+```
+<body>
+    <table width="400" height="100" border="1">
+        <tr>
+            <td rowspan="2">첫 번째 셀</td>
+            <td>두번째 셀</td>
+        </tr>
+        <tr>
+            <td>세번째 셀</td>
+        </tr>
+    </table>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138225658-5c0f772f-158b-44ab-8776-ffa7164f6ef5.png)
