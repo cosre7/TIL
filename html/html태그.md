@@ -1,3 +1,6 @@
+# 목차
+- [목차](#목차)
+- [HTML 문서 작성]
 # HTML 문서 작성
 ## 웹 페이지 제목
 ```
@@ -258,3 +261,99 @@
 </body>
 ```
 ![image](https://user-images.githubusercontent.com/76677629/138043505-57263253-b69f-44de-9969-d1cd24f3382a.png)
+
+# 멀티미디어 삽입
+## 웹 페이지에 그림 삽입
+```
+<body>
+  <img src="xx.jpg" width="200" height="200">
+  <img src="이미지 경로[URL]" width="너비" height="높이" alt="풍선 도움말" border="그림 테두리">
+</body>
+=> 이미지 경로는 상대경로, 절대경로 모두 가능
+```
+![image](https://user-images.githubusercontent.com/76677629/138194838-61e5196b-af18-4acf-b7de-e6302dd0dd35.png)
+
+## 웹 페이지 배경 그림 삽입
+```
+<body background="xx.jpg">
+</body>
+```
+
+## 그림에 링크 설정
+```
+<body>
+    <a href="https://www.naver.com">
+        <img src="img.jpg" width="200" height="200">
+    </a>
+</body>
+=> 그림 누르면 링크로 연결
+
+// 테두리 없애고 싶을 때
+<body>
+    <a href="https://www.naver.com">
+        <img src="img.jpg" width="200" height="200" border="0">
+    </a>
+</body>
+```
+
+## 그림 주변 여백 설정
+```
+<body>
+    <img src="img.jpg" width="200" height="200" hspace="100" vspace="50" border="1">
+</body>
+=> hspace : 좌우 여백
+=> vspace : 상하 여백
+```
+![image](https://user-images.githubusercontent.com/76677629/138195918-003483fe-809d-43db-9df9-d339b92b5a03.png)
+
+## 그림에 말풍선 추가
+```
+<body>
+    <img src="img.jpg" alt="HTML, CSS, JavaScript" width="200" height="200" border="1">
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138196133-69bd3309-74a9-48d2-8844-c083185778b1.png)
+
+## 그림과 글자 위치
+```
+<body>
+    <p><img src="img.jpg" width="200" height="200" align="top"><font>top 이미지</font></p>
+    <p><img src="img.jpg" width="200" height="200" align="middle"><font>middle 이미지</font></p>
+    <p><img src="img.jpg" width="200" height="200" align="bottom"><font>bottom 이미지</font></p>
+    <p><img src="img.jpg" width="200" height="200" align="left"><font>left 이미지</font></p>
+    <br><br><br><br><br><br><br>
+    <p><img src="img.jpg" width="200" height="200" align="right"><font>right 이미지</font></p>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138196638-5626a0f5-9fc3-4e9d-b4a2-9199725ec71e.png)
+
+## 그림 일부분에만 링크 설정
+```
+<body>
+    <img src="image.jpg" width="500" height="300" usemap="#Map">
+        <Map name="Map">
+            <area shape="rect" coords="205,100,270,140" href="#"> -> 사각형
+            <area shape="circle" coords="430,260,40" href="#"> -> 원형
+            <area shape="poly" coords="10,50,90,50,90,70,130,70,130,100,10,99" href="#"> -> 다각형
+        </Map>
+</body>
+```
+
+## 배경음악 설정
+```
+<body>
+  <bgsound src="URL" loop="반복횟수">
+</body>
+=> loop : -1이나 infinite 입력 시 무한 반복
+```
+
+## 웹페이지에 멀티미디어 삽입
+```
+<body>
+  <embed src="URL" autostart="true/false" hidden="true/false" loop="true/false" width="너비" heignt="높이">
+</body>
+autostart: true(자동재생), false(재생 버튼으로 재생)
+hidden: 플레이 컨트롤러 true(표시), false(숨김)
+loop: true(무한 반복), false(숨김)
+```
+
