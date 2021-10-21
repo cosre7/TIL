@@ -30,6 +30,23 @@
 - [양수, 음수만 입력받는 input 태그 만들기](#양수-음수만-입력받는-input-태그-만들기)
 - [ajax 에서 json 형태 문자열 데이터를 data로 보낼 때](#ajax-에서-json-형태-문자열-데이터를-data로-보낼-때)
 
+### pom.xml
+```
+1. GSON 라이브러리
+<dependency>
+	<groupId>com.google.code.gson</groupId>
+	<artifactId>gson</artifactId>
+	<version>2.8.7</version>
+</dependency>
+
+2. JSON 라이브러리
+<dependency>
+	<groupId>org.json</groupId>
+	<artifactId>json</artifactId>
+	<version>20210307</version>
+</dependency>
+```
+
 ### input 태그 동적 생성 (id값 각각 다르게)
   ```
   * html *
