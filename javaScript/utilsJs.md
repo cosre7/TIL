@@ -1,6 +1,34 @@
 # 목차
 - [목차](#목차)
-- [input 태그 동적 생성 (id값 각각 다르게)]()
+- [input 태그 동적 생성 (id값 각각 다르게)](#input-%ED%83%9C%EA%B7%B8-%EB%8F%99%EC%A0%81-%EC%83%9D%EC%84%B1-id%EA%B0%92-%EA%B0%81%EA%B0%81-%EB%8B%A4%EB%A5%B4%EA%B2%8C)
+- [동적 생성된 input 태그 값 출력 (id값 이용)](#%EB%8F%99%EC%A0%81-%EC%83%9D%EC%84%B1%EB%90%9C-input-%ED%83%9C%EA%B7%B8-%EA%B0%92-%EC%B6%9C%EB%A0%A5-id%EA%B0%92-%EC%9D%B4%EC%9A%A9)
+- [input 값 배열에 담기](#input-값-배열에-담기) 
+- [input 값 숫자로 받기(id 이용)](#input-%EA%B0%92-%EC%88%AB%EC%9E%90%EB%A1%9C-%EB%B0%9B%EA%B8%B0id-%EC%9D%B4%EC%9A%A9)
+- [문자의 ASCII 코드 번호 알아내기](#%EB%AC%B8%EC%9E%90%EC%9D%98-ascii-%EC%BD%94%EB%93%9C-%EB%B2%88%ED%98%B8-%EC%95%8C%EC%95%84%EB%82%B4%EA%B8%B0)
+- [문자열 전체 ASCII 코드 번호](#%EB%AC%B8%EC%9E%90%EC%97%B4-%EC%A0%84%EC%B2%B4-ascii-%EC%BD%94%EB%93%9C-%EB%B2%88%ED%98%B8)
+- [a ~ z 출력하는 반복문](#a--z-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%EB%B0%98%EB%B3%B5%EB%AC%B8)
+- [ASCII 코드에 해당하는 문자 반환](#ascii-%EC%BD%94%EB%93%9C%EC%97%90-%ED%95%B4%EB%8B%B9%ED%95%98%EB%8A%94-%EB%AC%B8%EC%9E%90-%EB%B0%98%ED%99%98)
+- [배열 내림차순 정렬](#%EB%B0%B0%EC%97%B4-%EB%82%B4%EB%A6%BC%EC%B0%A8%EC%88%9C-%EC%A0%95%EB%A0%AC)
+- [배열에 객체 넣기](#%EB%B0%B0%EC%97%B4%EC%97%90-%EA%B0%9D%EC%B2%B4-%EB%84%A3%EA%B8%B0))
+- [key:value 형식으로 객체 출력](#keyvalue-%ED%98%95%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EA%B0%9D%EC%B2%B4-%EC%B6%9C%EB%A0%A5)
+- [객체를 구성하는 전체 값을 배열로 출력](#%EA%B0%9D%EC%B2%B4%EB%A5%BC-%EA%B5%AC%EC%84%B1%ED%95%98%EB%8A%94-%EC%A0%84%EC%B2%B4-%EA%B0%92%EC%9D%84-%EB%B0%B0%EC%97%B4%EB%A1%9C-%EC%B6%9C%EB%A0%A5)
+- [객체를 구성하는 전체 키를 배열로 출력](#%EA%B0%9D%EC%B2%B4%EB%A5%BC-%EA%B5%AC%EC%84%B1%ED%95%98%EB%8A%94-%EC%A0%84%EC%B2%B4-%ED%82%A4%EB%A5%BC-%EB%B0%B0%EC%97%B4%EB%A1%9C-%EC%B6%9C%EB%A0%A5)
+- [배열 테이블로 분리시키기](#%EB%B0%B0%EC%97%B4-%ED%85%8C%EC%9D%B4%EB%B8%94%EB%A1%9C-%EB%B6%84%EB%A6%AC%EC%8B%9C%ED%82%A4%EA%B8%B0)
+- [객체형태 함수 선언](#%EA%B0%9D%EC%B2%B4%ED%98%95%ED%83%9C-%ED%95%A8%EC%88%98-%EC%84%A0%EC%96%B8)
+- [html 문서 내에서 자바스크립트, jquery 선언](#html-%EB%AC%B8%EC%84%9C-%EB%82%B4%EC%97%90%EC%84%9C-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-jquery-%EC%84%A0%EC%96%B8)
+- [버튼 클릭 시 함수 연결](#%EB%B2%84%ED%8A%BC-%ED%81%B4%EB%A6%AD-%EC%8B%9C-%ED%95%A8%EC%88%98-%EC%97%B0%EA%B2%B0)
+- [ajax 호출](#ajax-호출)
+- [javascript에서 html 영역에 내용 넣기](#javascript에서-html-영역에-내용-넣기)
+- [null 개수 구하기](#null-개수-구하기)
+- [javascript에서 <input> 태그 만들기](#javascript%EC%97%90%EC%84%9C-input-%ED%83%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0)
+- [객체에 input 값 담기](#객체에-input-값-담기)
+- [ajax 호출로 리턴받은 값 JSON 형태로 받기](#ajax-호출로-리턴받은-값-json-형태로-받기)
+- [json 형태 값 key, value 출력](#json-%ED%98%95%ED%83%9C-%EA%B0%92-key-value-%EC%B6%9C%EB%A0%A5)
+- [id=key 에 속성 추가](#idkey-%EC%97%90-%EC%86%8D%EC%84%B1-%EC%B6%94%EA%B0%80)
+- [배열에서 null 제거하기](#배열에서-null-제거하기)
+- [배열을 json 문자열로 만들기](#배열을-json-문자열로-만들기)
+- [양수, 음수만 입력받는 input 태그 만들기](#양수-음수만-입력받는-input-태그-만들기)
+- [ajax 에서 json 형태 문자열 데이터를 data로 보낼 때](#ajax-에서-json-형태-문자열-데이터를-data로-보낼-때)
 
 ### input 태그 동적 생성 (id값 각각 다르게)
   ```
@@ -282,68 +310,67 @@
   ```
   
 ### ajax 호출로 리턴받은 값 JSON 형태로 받기
-	```
-	var value = JSON.parse(returnValue);
-	```
+  ```
+  var value = JSON.parse(returnValue);
+  ```
 
 ### json 형태 값 key, value 출력
-	```
-	var value = JSON.parse(returnValue);
-	
-	value.forEach(function(item) { 
-		for (var key in item) { // value의 key를 모두 열거.
-			console.log(key); // key값 출력
-			console.log(item[key]); key값에 대한 value 출력
-		}
-	})
-	```
+  ```
+  var value = JSON.parse(returnValue);
+
+  value.forEach(function(item) { 
+  	for (var key in item) { // value의 key를 모두 열거.
+  		console.log(key); // key값 출력
+		console.log(item[key]); key값에 대한 value 출력
+	}
+  })
+  ```
 	
 ### id=key 에 속성 추가
-	```
-	var value = JSON.parse(returnValue);
-	
-	value.forEach(function(item) { 
-		for (var key in item) { // value의 key를 모두 열거.
-			$('#' + key).attr('value',item[key]); // id=key 인 태그의 value 속성에 item[key] 값 추가
-		}
-	})
-	```
+  ```
+  var value = JSON.parse(returnValue);
+
+  value.forEach(function(item) { 
+  	for (var key in item) { // value의 key를 모두 열거.
+  		$('#' + key).attr('value',item[key]); // id=key 인 태그의 value 속성에 item[key] 값 추가
+  	}
+  })
+  ```
 
 ### 배열에서 null 제거하기
-	```
-	var factorsList = [];
-	var removeNullRow = factorsList.filter((element) => element != null);
-	```
+```
+var factorsList = [];
+var removeNullRow = factorsList.filter((element) => element != null);
+```
 	
 ### 배열을 json 문자열로 만들기
-	```
-	var factorsList = [];
-	var removeNullRow = factorsList.filter((element) => element != null);
-	var jsonString = JSON.stringify(removeNullRow);
-	```
+```
+var factorsList = [];
+var removeNullRow = factorsList.filter((element) => element != null);
+var jsonString = JSON.stringify(removeNullRow);
+```
 
 ### 양수, 음수만 입력받는 input 태그 만들기
-	```
-	var firstFactorTag = document.createElement('input');
-	firstFactorTag.setAttribute('id', 'firstFactor'+i);
-	firstFactorTag.setAttribute('onKeyup', "this.value=this.value.match(/^(-?)[0-9]*/g);");
-	```
+```
+var firstFactorTag = document.createElement('input');
+firstFactorTag.setAttribute('id', 'firstFactor'+i);
+firstFactorTag.setAttribute('onKeyup', "this.value=this.value.match(/^(-?)[0-9]*/g);");
+```
 
 ### ajax 에서 json 형태 문자열 데이터를 data로 보낼 때
-	```
-	var jsonData = JSON.stringify(배열);
-	
-	$.ajax({
-		url: "/",
-		contentType: "application/json; charset=UTF-8",
-		data: jsonData,
-		method: "post"
-	}).done(function(returnValue) {
-	}).fale(function(error) {
-	});
-	```
+```
+var jsonData = JSON.stringify(배열);
 
-- 
+$.ajax({
+	url: "/",
+	contentType: "application/json; charset=UTF-8",
+	data: jsonData,
+	method: "post"
+}).done(function(returnValue) {
+}).fale(function(error) {
+});
+```
+ 
 
 
 
