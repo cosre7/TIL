@@ -1,5 +1,8 @@
 # 목차
-- **input 태그 동적 생성 (id값 각각 다르게)**
+- [목차](#목차)
+- [input 태그 동적 생성 (id값 각각 다르게)]()
+
+### input 태그 동적 생성 (id값 각각 다르게)
   ```
   * html *
   <div id="formDiv"></div>
@@ -24,7 +27,7 @@
   $("#formDiv").append("<button type='button'>계산하기</button>");
   ```
   
-- **동적 생성된 input 태그 값 출력 (id값 이용)**
+### 동적 생성된 input 태그 값 출력 (id값 이용)
   ```
   * html *
   <div id="resultDiv"></div>
@@ -54,13 +57,13 @@
   $('#resultDiv').html(jsonData);
   ```
 
-- **input 값 배열에 담기**
+### input 값 배열에 담기
   ```
   let alpha = document.getElementById("alpha").value; // 입력한 값 alpha 변수에 저장
   let splitedAlpha = alpha.split('');
   ```
   
-- **input 값 숫자로 받기(id 이용)**
+### input 값 숫자로 받기(id 이용)
   ```
   방법1)
   var input = Number(document.getElementById("input").value);
@@ -69,39 +72,39 @@
   var input = Number($('#input').val());
   ```
   
-- **문자의 ASCII 코드 번호 알아내기**
+### 문자의 ASCII 코드 번호 알아내기
   ```
   'The quick brown fox jumps over the lazy dog.'.charCodeAt(4) -> 'The~' 문자열의 4번째 인덱스의 ASCII 코드
   -> 'q'의 ASCII 코드 = 113
   ```
 
-- **문자열 전체 ASCII 코드 번호**
+### 문자열 전체 ASCII 코드 번호
   ```
   var icons = '☃★♲';
   
   icons.codePointAt(1) = 9733
   ```
 
-- **a ~ z 출력하는 반복문**
+### a ~ z 출력하는 반복문
   ```
   for(i = 'a'.charCodeAt(0); i <= 'z'.charCodeAt(0); i++) {
   	document.write(i); // 97 98 99 ~
 	document.write(String.fromCharCode(i)); // a b c ~
   ```
   
-- **ASCII 코드에 해당하는 문자 반환**
+### ASCII 코드에 해당하는 문자 반환
   ```
   String.fromCharCode(97) => a
   ```
   
-- **배열 내림차순 정렬**
+### 배열 내림차순 정렬
   ```
   배열.sort(function(a,b) {
   	return b[1] - a[1];
   });
   ```
   
-- **배열에 객체 넣기**
+### 배열에 객체 넣기
   ```
   alphaObj = {name: String.fromCharCode(i), number: number_lowerCase};
   alphaCount.push([alphaObj.name, alphaObj.number]);
@@ -109,7 +112,7 @@
   -> alphaCount : [[a, 1], [b, 2], ..]]
   ```
   
-- **key:value 형식으로 객체 출력**
+### key:value 형식으로 객체 출력
   ```
   for(var [key, value] of Object.entries(alphaObj)) {
       document.write(`${key}:${value}`); // name:a number:1 name:b number:0
@@ -117,7 +120,7 @@
   }
   ```
   
-- **객체를 구성하는 전체 값을 배열로 출력**
+### 객체를 구성하는 전체 값을 배열로 출력
   ```
   방법1)
   for(i of Object.values(alphaObj)) {
@@ -130,7 +133,7 @@
   }
   ```
 
-- **객체를 구성하는 전체 키를 배열로 출력**
+### 객체를 구성하는 전체 키를 배열로 출력
   ```
   방법1)
   for(i of Object.keys(alphaObj)) {
@@ -143,7 +146,7 @@
   }
   ```
   
-- **배열 테이블로 분리시키기**
+### 배열 테이블로 분리시키기
   ```
   document.write("<table border = 1>");
   for(i = 0; i < 10; i++) {
@@ -152,7 +155,7 @@
   document.write("</table>")
   ```
 
-- **객체형태 함수 선언**
+### 객체형태 함수 선언
   ```
   var MultiplicationFactory = {};
   MultiplicationFactory.multiplyTable = [];
@@ -170,14 +173,14 @@
   }
   ```
 
-- **html 문서 내에서 자바스크립트, jquery 선언**
+### html 문서 내에서 자바스크립트, jquery 선언
   ```
   <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script type="text/javascript">
   </script>	
   ```
 
-- **버튼 클릭 시 함수 연결**
+### 버튼 클릭 시 함수 연결
   ```
   <button type="button">버튼</button>
   
@@ -188,7 +191,7 @@
   </script>
   ```
 
-- **ajax 호출**
+### ajax 호출
   ```
   방법1)
   $.ajax({
@@ -225,7 +228,7 @@
   });
   ```
 
-- **javascript에서 html 영역에 내용 넣기**
+### javascript에서 html 영역에 내용 넣기
   ```
   var src = "";
   src += '<table border="1">';
@@ -237,12 +240,12 @@
   $("#resultDiv").html(src); // id=resultDiv 인 영역에 src 
   ```
 
-- **null 개수 구하기**
+### null 개수 구하기
   ```
   var firstTimesNumber = value.filter((element) => null === element).length;
   ```
   
-- **javascript에서 \<input> 태그 만들기**
+### javascript에서 \<input> 태그 만들기
   ```
   // □ × □ = □ 형식 10개 만들기
   for (var i = 1; i <= 10; i++) {
@@ -265,7 +268,7 @@
   }
   ```
 
-- **객체에 input 값 담기**
+### 객체에 input 값 담기
   ```
   for (var i = 1; i <= 10; i++) {
   	// 객체 생성
@@ -278,12 +281,12 @@
   }
   ```
   
-- **ajax 호출로 리턴받은 값 JSON 형태로 받기**
+### ajax 호출로 리턴받은 값 JSON 형태로 받기
 	```
 	var value = JSON.parse(returnValue);
 	```
 
-- **json 형태 값 key, value 출력**
+### json 형태 값 key, value 출력
 	```
 	var value = JSON.parse(returnValue);
 	
@@ -295,7 +298,7 @@
 	})
 	```
 	
-- **id=key 에 속성 추가**
+### id=key 에 속성 추가
 	```
 	var value = JSON.parse(returnValue);
 	
@@ -306,27 +309,27 @@
 	})
 	```
 
-- **배열에서 null 제거하기**
+### 배열에서 null 제거하기
 	```
 	var factorsList = [];
 	var removeNullRow = factorsList.filter((element) => element != null);
 	```
 	
-- **배열을 json 문자열로 만들기**
+### 배열을 json 문자열로 만들기
 	```
 	var factorsList = [];
 	var removeNullRow = factorsList.filter((element) => element != null);
 	var jsonString = JSON.stringify(removeNullRow);
 	```
 
-- **양수, 음수만 입력받는 input 태그 만들기**
+### 양수, 음수만 입력받는 input 태그 만들기
 	```
 	var firstFactorTag = document.createElement('input');
 	firstFactorTag.setAttribute('id', 'firstFactor'+i);
 	firstFactorTag.setAttribute('onKeyup', "this.value=this.value.match(/^(-?)[0-9]*/g);");
 	```
 
-- **ajax 에서 json 형태 문자열 데이터를 data로 보낼 때**
+### ajax 에서 json 형태 문자열 데이터를 data로 보낼 때
 	```
 	var jsonData = JSON.stringify(배열);
 	
