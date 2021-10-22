@@ -582,3 +582,96 @@ loop: true(무한 반복), false(숨김)
 </body>
 ```
 ![image](https://user-images.githubusercontent.com/76677629/138225658-5c0f772f-158b-44ab-8776-ffa7164f6ef5.png)
+
+# 다양한 테이블 활용 방법
+## 셀 배경 지정
+```
+<body>
+    <table width="400" height="100" border="1">
+        <tr>
+            <td bgcolor="blue">첫 번째 셀</td>
+            <td>두번째 셀</td>
+        </tr>
+        <tr>
+            <td bgcolor="red">세번째 셀</td>
+            <td>네번째 셀</td>
+        </tr>
+    </table>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138378166-0e22a620-52ea-4446-a79e-517026ccac69.png)
+
+## 테이블 활용 직선 만들기
+```
+<body>
+    <table width="400" height="100" border="0">
+        <tr>
+            <td height="1" bgcolor="black"></td>
+        </tr>
+        <tr>
+            <td height="30"></td>
+        </tr>
+        <tr>
+            <td height="2" bgcolor="black"></td>
+        </tr>
+        <tr>
+            <td height="30"></td>
+        </tr>
+        <tr>
+            <td height="4" bgcolor="black"></td>
+        </tr>
+    </table>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138378695-5dc8af21-0470-447d-8a7f-773b1199dfdb.png)
+
+## 폼(Form)
+## 로그인 양식
+```
+<body>
+    <table width="300" height="150" border="1">
+        <tr>
+            <td width="50"></td>
+            <td width="250"><table width="230" height="90" border="0">
+                <tr>
+                    <td><b>로그인</b></td>
+                </tr>
+                <tr>
+                    <td align="right"><b>아이디: </b></td>
+                    <td><input name="textField" type="text" size="15"></td>
+                </tr>
+                <tr>
+                    <td align="right">비밀번호: </td>
+                    <td><input name="textField2" type="password" size="15"></td>
+                </tr>
+            </table></td>
+        </tr>
+    </table>
+    <table width="300" height="150" border="0">
+        <tr>
+            <td width="50"></td>
+            <td width="250"><table width="230" height="90" border="0">
+                <tr>
+                    <td><b>로그인</b></td>
+                </tr>
+                <tr>
+                    <td align="right"><b>아이디: </b></td>
+                    <td><input name="textField" type="text" size="15"></td>
+                </tr>
+                <tr>
+                    <td align="right">비밀번호: </td>
+                    <td><input name="textField2" type="password" size="15"></td>
+                </tr>
+            </table></td>
+        </tr>
+    </table>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138380088-86ab957f-504d-4589-b4a7-dd6d44d09109.png)
+
+## 숨김 양식
+```
+<body>
+  <input type="hidden" />
+</body>
+```
