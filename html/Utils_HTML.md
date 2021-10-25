@@ -37,13 +37,35 @@
   - [웹페이지에 멀티미디어 삽입](#웹페이지에-멀티미디어-삽입)
 
 # HTML 문서 작성
+## head 태그
+```
+<head>
+</head>
+-> 화면에 표시되지 않는 내용이 담긴다.
+-> 페이지에 대한 metadata를 포함한다.
+```
+
 ## 웹 페이지 제목
 ```
 <HEAD>
   <TITLE>제목 넣기</TITLE>
 </HEAD>
+-> 북마크 이름으로 사용된다
 ```
 ![image](https://user-images.githubusercontent.com/76677629/138039637-a6e11621-1f98-4745-a7c9-ec9fc1ffdb84.png)
+
+## meta 태그
+```
+<head>
+  <meta name="author" content="Chris Mills">
+  <meta name="description" content="The MDN Learning Area aims to provide
+  complete beginners to the Web with all they need to know to get
+  started with developing web sites and applications.">
+</head>
+-> name : 어떤 정보 형태를 가지고 있는지 알려준다.
+-> content : 실제 메타데이터의 컨텐츠
+=> 관리자 정리, 머릿말 요약
+```
 
 ## 인코딩 설정
 ```
@@ -52,6 +74,16 @@
   <META http-equiv=""Content-Type" CONTENT="text/html; charset=utf-8" /> -> 한글 사이트
   <META http-equiv=""Content-Type" CONTENT="text/html; charset=iso-8859-1" /> -> 영문 사이트
 </HEAD>
+```
+
+## css, JavaScript 적용
+```
+<head> 
+  <link rel="stylesheet" href="my-css-file.css">
+</head>
+<body>
+  <script src="my-js-file.js"></script>
+</body>
 ```
 
 ## 주석 삽입
@@ -127,8 +159,15 @@
     <font><i>이탤릭체</i></font><br/>
     <font><i><b>볼드이탤릭체</b></i></font>
 </body>>
+
++추가
+<body>  
+  <p>내 고양이는 <strong>아주</strong> 고약해.</p>
+  <em>This is my text.</em>
+</body>
 ```
-![image](https://user-images.githubusercontent.com/76677629/138040037-3b78a10b-2bf1-454f-830c-72f9f303b8b2.png)
+![image](https://user-images.githubusercontent.com/76677629/138040037-3b78a10b-2bf1-454f-830c-72f9f303b8b2.png) 
+![image](https://user-images.githubusercontent.com/76677629/138644025-02ca807f-3a25-4222-8341-272f8260e983.png)
 
 
 ## 밑줄, 취소선
@@ -222,12 +261,45 @@
 ```
 ![image](https://user-images.githubusercontent.com/76677629/138038548-fdb24098-1147-47ea-8163-539ba12e085d.png)
 
+## 중첩 리스트
+```
+<body>
+    <ul>
+        <li type="circle">빈 원형</li>
+        <li type="disc">검은색 원형</li>
+        <ol>
+            <li>첫번째</li>
+            <li>두번째</li>
+            <li>세번째</li> 
+        </ol>
+        <li type="square">검은색 사각형</li>
+    </ul>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138648900-496ddf10-634a-4c9e-a4b7-77a666831f31.png)
+
+## 정의 목록
+```
+<body>
+    <dl>
+        <dt>soliloquy</dt>
+        <dd>In drama, where a character speaks to themselves, representing their inner thoughts or feelings and in the process relaying them to the audience (but not to other characters.)</dd>
+        <dt>monologue</dt>
+        <dd>In drama, where a character speaks their thoughts out loud to share them with the audience and any other characters present.</dd>
+        <dt>aside</dt>
+        <dd>In drama, where a character shares a comment only with the audience for humorous or dramatic effect.></dd>
+        <dd>This is usually a feeling, thought or piece of additional background information.</dd>
+      </dl>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138654522-da918137-e206-4873-88ff-8d5f6e12a1e7.png)
+
 ## 페이지 배경색 바꾸기
 ```
 <body bgcolor="#FF00FF">
     <font>#FF0000 은 빨간색<br><br>
-        #00FF00 은 파란색<br><br>
-        #0000FF 는 초록색</font>
+    <font>#00FF00 은 파란색<br><br>
+    <font>#0000FF 는 초록색</font>
 </body>
 ```
 ![image](https://user-images.githubusercontent.com/76677629/138039232-38964fe9-0d4a-4480-b7b7-ce4c9195b9a6.png)
@@ -256,14 +328,53 @@
 ```
 ![image](https://user-images.githubusercontent.com/76677629/138040282-6fc6c61f-09c4-4df3-910e-76f5e15f8e52.png)
 
+## 컴퓨터 코드 나타내기
+```
+<body>
+    <pre><code>var para = document.querySelector('p');
+
+    para.onclick = function() {
+        alert('Owww, stop poking me!');
+    }</code></pre>
+    
+    <p>You shouldn't use presentational elements like <code>&lt;font&gt;</code> and <code>&lt;center&gt;</code>.</p>
+    
+    <p>In the above JavaScript example, <var>para</var> represents a paragraph element.</p>
+    
+    
+    <p>Select all the text with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd>.</p>
+    
+    <pre>$ <kbd>ping mozilla.org</kbd>
+    <samp>PING mozilla.org (63.245.215.20): 56 data bytes
+    64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms</samp></pre>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138656281-e2498e8a-d6e3-4920-9dae-e6d4be1a7785.png)
+
+
 # 하이퍼링크 설정
 ## 글자에 링크 설정
 ```
+*URL 방식*
 <body>
     <a href="https://www.naver.com" target="_blank">네이버</a> -> 새 창
     <a href="https://www.daum.net" target="_self">다음</a> -> 현재 창(기본)
 </body>
+
+*path 방식*
+<body>
+    <p>1.<a href="contacts.html">같은 디렉토리</a></p>
+    <p>2.<a href="projects/index.html">하위 디렉토리</a></p>
+    <p>3.<a href="../pdfs/project-brief.pdf">부모 디렉토리</a></p>
+</body>
+
++ 추가
+<body>
+    <a href="https://www.naver.com" title="네이버홈페이지" target="_blank">네이버</a>
+</body>
+-> 마우스를 올렸을 때 '네이버홈페이지'라는 문구가 뜬다.
 ```
+![image](https://user-images.githubusercontent.com/76677629/138651442-071aa767-51e0-40f7-b6d2-37a00f045106.png)
 ![image](https://user-images.githubusercontent.com/76677629/138041870-30bcb188-af35-4370-b852-15916ff87df0.png)
 
 ## 링크 설정 글자색 바꾸기
@@ -279,23 +390,43 @@
 ```
 <body>
     <!-- 상단 책갈피 위치 지정 -->
-    <a name="top"></a> <!-- "위로" 클릭 시 도착-->
-    [<a href="#a"<font>메뉴 1</font></a>]&nbsp;&nbsp;
-    [<a href="#b"<font>메뉴 2</font></a>]
+    <a id="top"></a> <!-- "위로" 클릭 시 도착-->
+    [<a href="#a">메뉴 1</a>]&nbsp;&nbsp;
+    [<a href="#b">메뉴 2</a>]
     <br><br><br><br>
     <!-- 메뉴 1 위치 지정 -->
     <hr width="100%" size="3">
-    [<a name="a"><font>메뉴 1</font></a>] <!-- 메뉴1 클릭 시 도착-->
+    [<a id="a">메뉴 1</a>] <!-- 메뉴1 클릭 시 도착-->
     <br><br><br><br>
     <!-- 메뉴 2 위치 지정-->
     <hr width="100%" size="3">
-    [<a name="b"><font>메뉴 2</font></a>] <!-- 메뉴 2 클릭 시 도착 -->
+    [<a id="b">메뉴 2</a>] <!-- 메뉴 2 클릭 시 도착 -->
     <br><br><br><br>
     <!-- 상단으로 올라갈 버튼 -->
     <p align="right"><a href="#top">위로</a></p>
 </body>
 ```
 ![image](https://user-images.githubusercontent.com/76677629/138043505-57263253-b69f-44de-9969-d1cd24f3382a.png)
+
+## 인용구
+```
+<body>
+    <p>According to the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+    <cite>MDN blockquote page</cite></a>:
+    </p>
+    
+    <blockquote cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+        <p>The <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or <em>HTML Block
+        Quotation Element</em>) indicates that the enclosed text is an extended quotation.</p>
+    </blockquote>
+    
+    <p>The quote element — <code>&lt;q&gt;</code> — is <q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">intended
+    for short quotations that don't require paragraph breaks.</q> -- <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">
+    <cite>MDN q page</cite></a>.</p>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138655735-f2854710-67bc-40cc-824e-d015be619df7.png)
+
 
 # 멀티미디어 삽입
 ## 웹 페이지에 그림 삽입
@@ -675,3 +806,13 @@ loop: true(무한 반복), false(숨김)
   <input type="hidden" />
 </body>
 ```
+
+## 데이터 입력 막기
+```
+<body>
+    <input type="text" disabled>
+
+    <input type="text">
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138644952-f5ff8f01-c390-4694-baf0-d8f298bdcaa2.png)
