@@ -1,364 +1,360 @@
 # 목차
 - [목차](#목차)
-- [HTML 문서 작성](#html-%EB%AC%B8%EC%84%9C-%EC%9E%91%EC%84%B1)
-  - [웹 페이지 제목](#%EC%9B%B9-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%A0%9C%EB%AA%A9)  
-  - [인코딩 설정](#인코딩-설정)
-  - [주석 삽입](#주석-삽입)
-- [텍스트 입력과 편집](#텍스트-입력과-편집)
-  - [html 문서에 글자 삽입](#html-문서에-글자-삽입)
-  - [글자 크기 바꾸기](#글자-크기-바꾸기)
-  - [단락 제목 만들기](#단락-제목-만들기)
-  - [글씨체 바꾸기](#글씨체-바꾸기)
-  - [볼드체, 이탤릭체](#볼드체-이탤릭체)
-  - [밑줄, 취소선](#밑줄-취소선)
-  - [위첨자, 아래첨자](#위첨자-아래첨자)
-  - [글자 정렬](#글자-정렬)
-  - [줄바꿈](#줄바꿈)
-  - [글자 사이 두 칸 이상 공백](#글자-사이-두-칸-이상-공백)
-  - [문단 나누기](#문단-나누기)
-  - [순서 없는 목록](#순서-없는-목록)
-  - [순서 있는 목록](#순서-있는-목록)
-  - [페이지 배경색 바꾸기](#페이지-배경색-바꾸기)
-  - [글자색 바꾸기 - 영문 이름](#글자색-바꾸기---영문-이름)
-  - [글자색 바꾸기 - 컬러코드](#글자색-바꾸기---컬러코드)
-- [하이퍼링크 설정](#하이퍼링크-설정)
-  - [글자에 링크 설정](#글자에-링크-설정)
-  - [링크 설정 글자색 바꾸기](#링크-설정-글자색-바꾸기)
-  - [내부링크](#내부링크)
-- [멀티미디어 삽입](#멀티미디어-삽입)
-  - [웹 페이지에 그림 삽입](#웹-페이지에-그림-삽입)
-  - [웹 페이지 배경 그림 삽입](#웹-페이지-배경-그림-삽입)
-  - [그림에 링크 설정](#그림에-링크-설정)
-  - [그림 주변 여백 설정](#그림-주변-여백-설정)
-  - [그림에 말풍선 추가](#그림에-말풍선-추가)
-  - [그림과 글자 위치](#그림과-글자-위치)
-  - [그림 일부분에만 링크 설정](#그림-일부분에만-링크-설정)
-  - [배경음악 설정](#배경음악-설정)
-  - [웹페이지에 멀티미디어 삽입](#웹페이지에-멀티미디어-삽입)
-
-# HTML 문서 작성
-## head 태그
+# 시작
+## 기본구조
 ```
-<head>
-</head>
--> 화면에 표시되지 않는 내용이 담긴다.
--> 페이지에 대한 metadata를 포함한다.
+<!DOCTYPE html> : 현재 문서가 HTML5 문서임을 명시
+
+<html> : HTML 문서의 루트(root) 요소를 정의
+
+<head> : HTML 문서의 메타데이터(metadata) 정의
+       - 메타데이터란 HTML 문서에 대한 정보(data) -> 웹 브라우저에는 직접적으로 표현되지 않는 정보
+       - <title>, <style>, <meta>, <link>, <script>, <base> 태그 등을 이용
+
+<title> : HTML 문서의 제목
+        - 웹 브라우저의 툴바(toolbar)에 표시
+        - 즐겨찾기 제목
+        - 검색 엔진의 결과 페이지 제목
+        
+<body> : 웹 브라우저 내용(content)
+
+<h1>~<h6> : 제목(heading)
+
+<p> : 단락(paragraph)
 ```
 
-## 웹 페이지 제목
+# 텍스트 요소
+## 제목
+### 제목(Heading)
 ```
-<HEAD>
-  <TITLE>제목 넣기</TITLE>
-</HEAD>
--> 북마크 이름으로 사용된다
-```
-![image](https://user-images.githubusercontent.com/76677629/138039637-a6e11621-1f98-4745-a7c9-ec9fc1ffdb84.png)
-
-## meta 태그
-```
-<head>
-  <meta name="author" content="Chris Mills">
-  <meta name="description" content="The MDN Learning Area aims to provide
-  complete beginners to the Web with all they need to know to get
-  started with developing web sites and applications.">
-</head>
--> name : 어떤 정보 형태를 가지고 있는지 알려준다.
--> content : 실제 메타데이터의 컨텐츠
-=> 관리자 정리, 머릿말 요약
-```
-
-## 인코딩 설정
-```
-<HEAD>
-  <META http-equiv=""Content-Type" CONTENT="text/html; charset=euc-kr" /> -> 한글 사이트
-  <META http-equiv=""Content-Type" CONTENT="text/html; charset=utf-8" /> -> 한글 사이트
-  <META http-equiv=""Content-Type" CONTENT="text/html; charset=iso-8859-1" /> -> 영문 사이트
-</HEAD>
-```
-
-## css, JavaScript 적용
-```
-<head> 
-  <link rel="stylesheet" href="my-css-file.css">
-</head>
 <body>
-  <script src="my-js-file.js"></script>
+  <h1>헤드라인 크기 1</h1>
+  <h2>헤드라인 크기 2</h2>
+  <h3>헤드라인 크기 3</h3>
+  <h4>헤드라인 크기 4</h4>
+  <h5>헤드라인 크기 5</h5>
+  <h6>헤드라인 크기 6</h6>
+</body>
+=> 숫자가 클수록 크기가 작아진다
+=> 검색엔진에서 <h> 태그를 이용하여 키워드를 수집하고 내용 파악 -> 제목을 <h> 태그로 작성해야만 검색엔진에서 제대로 검색
+```
+![image](https://user-images.githubusercontent.com/76677629/138039969-e957fc78-9334-42b8-94f5-81a36945a9bc.png)
+
+## 단락
+### 단락(Paragraph)
+```
+<body>
+	<h3>제목3</h3>
+	<p>단락1</p>
+    <p>단락2</p>
 </body>
 ```
+![image](https://user-images.githubusercontent.com/76677629/138825543-b4db4407-8aa1-471b-bbbd-2101c0fe1516.png)
 
-## 주석 삽입
+### 띄어쓰기와 줄 나누기
+```
+<body>
+	<p>
+br 태그 없이 작성한 문서
+
+띄어쓰기       많이     하기 
+	</p>
+	<hr>
+    <p>
+br 태그를<br>
+사용한 문서<br>
+<br>
+띄어쓰기       많이     하기 
+	</p>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138825991-f303388e-6855-471f-b9a5-a3dbb02b5552.png)
+
+### 텍스트(text) 서식 미리 정의
+```
+<body>
+	<pre>
+pre 태그를 사용한 문서
+작성한 그대로
+
+출력이          된다.
+	</pre>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138826171-55f0c7f1-70b1-4c8a-9bf9-18064ec99fce.png)
+
+### 수평 가로 구분선
+```
+<body>
+	<p>첫 번째</p>
+	<hr>
+	<p>두 번째</p>
+	<hr>
+	<p>세 번째</p>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138820174-a77b0c23-86f7-46cc-a18e-5836c88d978d.png)
+
+## 서식
+### 강조 효과
+```
+<body>
+    <p>기본체</p>
+    <p><b>볼드체</b></p> -> 단순히 글씨가 굵은 부분
+    <p><i>이탤릭체</i></p> -> 단순히 글씨가 이탤릭체
+    <p><i><b>볼드이탤릭체</b></i></p>
+</body>>
+
++추가 (검색엔진에서 더 중요하게 인식)
+<body>  
+  <p>내 고양이는 <strong>아주</strong> 고약해.</p> -> 글씨 굵게 + 중요하다는 의미
+  <em>This is my text.</em> -> 중요한 부분이라서 이탤릭체
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138040037-3b78a10b-2bf1-454f-830c-72f9f303b8b2.png) 
+![image](https://user-images.githubusercontent.com/76677629/138644025-02ca807f-3a25-4222-8341-272f8260e983.png)
+
+### 하이라이팅
+```
+<body>
+	<p><mark>"이 부분"</mark> 하이라이팅</p>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138820557-002f50e3-07d8-41fe-8c3b-41d7c1b4b6f3.png)
+
+### 밑줄, 취소선
+```
+<body>
+    <p><u>밑줄</u></p>
+    <p><s>취소선</s></p>
+    <p><u><s>밑줄+취소선</s></u></p>
+</body>
+
++추가
+<body>
+	<p><del>"이 부분"</del> 취소선</p>
+  <p><ins>"밑줄 친 부분"</ins> 밑줄</p>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138040066-a4807a41-f68f-48aa-a97e-cfb5cdd73e51.png)
+![image](https://user-images.githubusercontent.com/76677629/138820955-95b55297-7fe3-4e49-8ca9-d163c9bad67c.png)
+
+### 위첨자, 아래첨자
+```
+<body>
+	<p>X<sup>2</sup> + Y<sup>3</sup> = Z</p>
+	<p>물의 화학식은 H<sub>2</sub>O</p>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138821076-46a757d4-8fd5-45a5-b428-15b792890053.png)
+
+## 인용구
+### 짧은 인용구
+```
+<body>
+	<p>본문이 이어지다가 
+	<q>인용구가 나오고</q>
+	다시 본문</p>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138821255-5a5c7f30-c26d-46d8-a444-8859812798e0.png)
+
+### 블록 인용구
+```
+<body>
+	<p>단어</p>
+	<blockquote>
+	단어의 정의를 길게 작성하게될 때 이렇게 블록 인용구를 사용하면 좋다.
+    </blockquote>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138821502-bb62acf1-f1ce-4861-816b-7e757e6797ef.png)
+
+### 축약형 표현
+```
+<body>
+	<p>단어 위에 마우스를 올려놓게 되면</p>
+	<p><strong><abbr title="마우스를 올렸을 때 나오는 글">마우스 올리기</abbr></strong>
+	마우스를 올리면 "마우스를 올렸을 때 나오는 글"이 표시된다.</p>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138822065-cc1b6d15-4722-4a76-819a-4532655e2132.png)
+
+### 주소 표현
+```
+<body>
+	<address>
+		서울특별시<br> 
+		강남구 테헤란로
+	</address>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138822396-864eb91f-6cf2-4e3b-8cdc-b0d1f09e7b1c.png)
+
+## 주석
+### 주석(comment)
 ```
 <body>
   <!-- 주석 삽입 -->
 <body>
 ```
 
-# 텍스트 입력과 편집
-## html 문서에 글자 삽입
+## 엔티티
+### 대표적인 엔티티
 ```
 <body>
-    body : 이                렇게 적어도 
-  출력은
-  <pre>
-    pre : 이                렇게 적으면 
-  출력은 
-  </pre>
+  <p>가나다&nbsp;라마바 -> 공백</p>
+  <p>가나다&lt;라마바 -> 보다 작은</p>
+  <p>가나다&gt;라마바 -> 보다 큰</p>
+  <p>가나다&amp;라마바 -> AND 기호</p>
+  <p>가나다&quot;라마바 -> 큰 따옴표</p>
+  <p>가나다&apos;라마바 -> 작은 따옴표</p>
 </body>
 ```
-![image](https://user-images.githubusercontent.com/76677629/138039789-5f19346f-c306-4654-b76d-221d23c13412.png)
+![image](https://user-images.githubusercontent.com/76677629/138823262-18f2678a-4644-477a-a678-45985d8ddb2c.png)
 
-## 글자 크기 바꾸기
+### 발음 구별 부호
 ```
 <body>
-  <font size="1">글자 크기 1</font>
-  <font size="2">글자 크기 2</font>
-  <font size="3">글자 크기 3</font>
-  <font size="4">글자 크기 4</font>
-  <font size="5">글자 크기 5</font>
-  <font size="6">글자 크기 6</font>
-  <font size="7">글자 크기 7</font>
+  <p>a&#768;</p>
+  <p>a&#769;</p>
+  <p>a&#770;</p>
+  <p>a&#771;</p>
 </body>
-=> 숫자가 클수록 크기가 커진다
-=> 기본 크기는 3
 ```
-![image](https://user-images.githubusercontent.com/76677629/138039910-a97a315d-8fcc-4eec-984c-bc168542fa5e.png)
+![image](https://user-images.githubusercontent.com/76677629/138823490-4ad873e4-3d75-44d5-b6da-1e9fa9514808.png)
 
-
-## 단락 제목 만들기
+### 심볼(Symbol) 특수문자
 ```
 <body>
-  <h1>헤드라인 크기 1</h>
-  <h2>헤드라인 크기 2</h>
-  <h3>헤드라인 크기 3</h>
-  <h4>헤드라인 크기 4</h>
-  <h5>헤드라인 크기 5</h>
-  <h6>헤드라인 크기 6</h>
+  <p>&cent; : 센트</p>
+  <p>&pound; : 파운드화</p>
+  <p>&yen; : 엔화</p>
+  <p>&euro; : 유로화</p>
+  <p>&copy; : 저작권</p>
+  <p>&reg; : 등록상표</p>
+  <p>&times; : 곱셈</p>
+  <p>&divide; : 나눗셈</p>
 </body>
-=> 숫자가 클수록 크기가 작아진다
 ```
-![image](https://user-images.githubusercontent.com/76677629/138039969-e957fc78-9334-42b8-94f5-81a36945a9bc.png)
+![image](https://user-images.githubusercontent.com/76677629/138823969-d6f8beb7-01d0-43ac-ad69-fe5feef53f0f.png)
 
+## 문자셋
+### 문자셋(Charcter set)
+```
+<head>
+  <meta http-equiv=""Content-Type" content="text/html; charset=euc-kr" /> -> 한글 사이트
+  <meta http-equiv=""Content-Type" content="text/html; charset=utf-8" /> -> 한글 사이트
+  <meta http-equiv=""Content-Type" content="text/html; charset=iso-8859-1" /> -> 영문 사이트
+  <meta charset="UTF-8"> -> HTML5
+</head>
 
-## 글씨체 바꾸기
+*문자셋 종류*
+1. ASCII : 가장 처음 만들어진 문자셋, 127개의 영문자와 숫자
+2. ANSI : 윈도우즈에서 만든 문자셋, 총256개 문자코드
+3. ISO-8859-1 : 256개 문자코드 지원, HTML4 기본 문자셋
+4. UTF-8 : 세상에 있는 거의 모든 문자(유니코드 문자), HTML5 기본 문자셋
+```
+
+# 기본 요소
+## 스타일
+### HTML 스타일(Style)
+```
+<태그이름 style="속성이름:속성값">
+```
+
+### 배경색 변경
+```
+<body style="background-color:#33CCFF">
+
+	<h1 style="background-color:white">
+		배경색 변경
+	</h1>
+
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138828106-61e08cec-3189-42db-9910-4ccc2da5e7f6.png)
+
+### 글자색 변경
 ```
 <body>
-  <font face="굴림">굴림체</font>
-  <font face="돋움">돋움체</font>
-  <font face="궁서">궁서체</font>
-  <font face="바탕">바탕체</font>
+
+	<h1 style="color:blue">
+		글자색 변경
+	</h1>
+
 </body>
 ```
-![image](https://user-images.githubusercontent.com/76677629/138040006-ef063ba8-c6c3-42b7-8e2c-44d122d508d8.png)
+![image](https://user-images.githubusercontent.com/76677629/138828390-d58e1592-ea50-4aeb-a0fc-2435a297405c.png)
 
-
-## 볼드체, 이탤릭체
+### 글자 크기 변경
 ```
 <body>
-    <font>기본체</font><br/>
-    <font><b>볼드체</b></font><br/>
-    <font><i>이탤릭체</i></font><br/>
-    <font><i><b>볼드이탤릭체</b></i></font>
-</body>>
 
-+추가
-<body>  
-  <p>내 고양이는 <strong>아주</strong> 고약해.</p>
-  <em>This is my text.</em>
+    <h1>
+		h1 크기
+	</h1>
+	<h1 style="font-size:250%">
+		글자 크기 변경
+	</h1>
+
 </body>
 ```
-![image](https://user-images.githubusercontent.com/76677629/138040037-3b78a10b-2bf1-454f-830c-72f9f303b8b2.png) 
-![image](https://user-images.githubusercontent.com/76677629/138644025-02ca807f-3a25-4222-8341-272f8260e983.png)
+![image](https://user-images.githubusercontent.com/76677629/138828606-097c9786-7529-471d-93f7-5c55f5bfbdea.png)
 
-
-## 밑줄, 취소선
+### 문단 정렬 변경
 ```
 <body>
-    <font><u>밑줄</u></font><br/>
-    <font><s>취소선</s></font><br/>
-    <font><u><s>밑줄+취소선</s></u></font><br/>
+	<h1 style="text-align:left">
+		왼쪽 정렬
+	</h1>
+	<h1 style="text-align:center">
+		가운데 정렬
+	</h1>
+  <h1 style="text-align:right">
+		오른쪽 정렬
+	</h1>
 </body>
 ```
-![image](https://user-images.githubusercontent.com/76677629/138040066-a4807a41-f68f-48aa-a97e-cfb5cdd73e51.png)
+![image](https://user-images.githubusercontent.com/76677629/138828768-cdc25cb1-5f4d-4818-a00f-60d981fbd591.png)
 
+### 여러 속성 적용
+```
+<body style="background-color:violet">
 
-## 위첨자, 아래첨자
+	<h1 style="background-color:white; color:maroon; font-size:150%; text-align:center">
+		여러개 속성 적용
+	</h1>
+
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138828912-6fa9da83-41da-410c-9e27-720435b38046.png)
+
+## 색
+### 색(color)표현
 ```
 <body>
-    <font>문자<sub>아래첨자</sub></font><br/>
-    <font>문자<sup>위첨자</sup></font><br/>
+
+	<h1 style="color:blue">색상 이름</h1>
+	<h1 style="color:rgb(0,0,255)">색상값</h1>
+	<h1 style="color:#0000FF">16진수 색상값</h1>
+
 </body>
 ```
-![image](https://user-images.githubusercontent.com/76677629/138036523-2e39fac8-e95f-4189-beeb-b6d7b4f442e0.png)
+![image](https://user-images.githubusercontent.com/76677629/138829295-1fa41b86-06ba-43ba-9b9f-6a487f23112d.png)
 
-## 글자 정렬
-```
-<body>
-    <center><font>문서 중앙 정렬</font></center>
-    <p align="left">문단 왼쪽 정렬</p>
-    <p align="center">문단 가운데 정렬</p>
-    <p align="right">문단 오른쪽 정렬</p>
-</body>
-```
-![image](https://user-images.githubusercontent.com/76677629/138037083-b24e8777-4021-4ca7-be89-045549f061c5.png)
-
-## 줄바꿈
-```
-<body>
-    <font>한 번 줄바꿈<br></font>
-    <font>두 번 줄바꿈<br><br></font>
-    <font>세 번 줄바꿈<br><br><br></font>
-    <font>확인</font>
-</body>
-```
-![image](https://user-images.githubusercontent.com/76677629/138037328-ec1627ed-e1e4-431c-8776-1290e4d5a62c.png)
-
-## 글자 사이 두 칸 이상 공백
-```
-<body>
-    <font>한 번 공백&nbsp;한 번 공백</font><br>
-    <font>두 번 공백&nbsp;&nbsp;두 번 공백</font><br>
-    <font>세 번 공백&nbsp;&nbsp;&nbsp;세 번 공백</font><br>
-</body>
-```
-![image](https://user-images.githubusercontent.com/76677629/138037621-3f3ba047-fa79-416c-872e-156d3562164d.png)
-
-## 문단 나누기
-```
-<body>
-    <font><p>문단 나누기</p></font><br>
-    <font>문단 나누기<p></font><br>
-    <font>문단 나누기<p><p><p><p></p></font><br>
-    <font>확인</font>
-</body>
-=> <p> 태그 한 개, 두 개, 여러 개 상관없이 한 번
-```
-
-## 순서 없는 목록
-```
-<body>
-    <ul>
-        <li type="circle">빈 원형</li>
-        <li type="disc">검은색 원형</li>
-        <li type="square">검은색 사각형</li>
-    </ul>
-</body>
-```
-![image](https://user-images.githubusercontent.com/76677629/138038215-83debd62-2054-4e14-a99a-66b30ce78cea.png)
-
-## 순서 있는 목록
-```
-<body>
-    <ol start="3">
-        <li type="1">아라비아 숫자형</li>
-        <li type="A">영문 대문자형</li>
-        <li type="a">영문 소문자형</li>
-        <li type="I">로마숫자 대문자형</li>
-        <li type="i">로마숫자 소문자형</li>
-    </ol>
-</body>
-=> start 숫자부터 차례대로 증가
-=> 기본은 아라비아 숫자
-```
-![image](https://user-images.githubusercontent.com/76677629/138038548-fdb24098-1147-47ea-8163-539ba12e085d.png)
-
-## 중첩 리스트
-```
-<body>
-    <ul>
-        <li type="circle">빈 원형</li>
-        <li type="disc">검은색 원형</li>
-        <ol>
-            <li>첫번째</li>
-            <li>두번째</li>
-            <li>세번째</li> 
-        </ol>
-        <li type="square">검은색 사각형</li>
-    </ul>
-</body>
-```
-![image](https://user-images.githubusercontent.com/76677629/138648900-496ddf10-634a-4c9e-a4b7-77a666831f31.png)
-
-## 정의 목록
-```
-<body>
-    <dl>
-        <dt>soliloquy</dt>
-        <dd>In drama, where a character speaks to themselves, representing their inner thoughts or feelings and in the process relaying them to the audience (but not to other characters.)</dd>
-        <dt>monologue</dt>
-        <dd>In drama, where a character speaks their thoughts out loud to share them with the audience and any other characters present.</dd>
-        <dt>aside</dt>
-        <dd>In drama, where a character shares a comment only with the audience for humorous or dramatic effect.></dd>
-        <dd>This is usually a feeling, thought or piece of additional background information.</dd>
-      </dl>
-</body>
-```
-![image](https://user-images.githubusercontent.com/76677629/138654522-da918137-e206-4873-88ff-8d5f6e12a1e7.png)
-
-## 페이지 배경색 바꾸기
-```
-<body bgcolor="#FF00FF">
-    <font>#FF0000 은 빨간색<br><br>
-    <font>#00FF00 은 파란색<br><br>
-    <font>#0000FF 는 초록색</font>
-</body>
-```
-![image](https://user-images.githubusercontent.com/76677629/138039232-38964fe9-0d4a-4480-b7b7-ce4c9195b9a6.png)
-
-## 글자색 바꾸기 - 영문 이름
-```
-<body bgcolor="#FF00FF">
-    <font color="red">빨간색</font><br>
-    <font color="blue">파란색</font><br>
-    <font color="green">초록색</font><br>
-    <font color="black">검정색</font><br>
-    <font color="white">흰색</font><br>
-</body>
-```
-![image](https://user-images.githubusercontent.com/76677629/138039478-213e9e4e-6a84-4ec6-8cf2-0a31097c4cf0.png)
-
-## 글자색 바꾸기 - 컬러코드
-```
-<body bgcolor="#FF00FF">
-    <font color="#FF0000">빨간색</font><br>
-    <font color="#0000ff">파란색</font><br>
-    <font color="#00ff00">초록색</font><br>
-    <font color="#000000">검정색</font><br>
-    <font color="#ffffff">흰색</font><br>
-</body>
-```
-![image](https://user-images.githubusercontent.com/76677629/138040282-6fc6c61f-09c4-4df3-910e-76f5e15f8e52.png)
-
-## 컴퓨터 코드 나타내기
-```
-<body>
-    <pre><code>var para = document.querySelector('p');
-
-    para.onclick = function() {
-        alert('Owww, stop poking me!');
-    }</code></pre>
-    
-    <p>You shouldn't use presentational elements like <code>&lt;font&gt;</code> and <code>&lt;center&gt;</code>.</p>
-    
-    <p>In the above JavaScript example, <var>para</var> represents a paragraph element.</p>
-    
-    
-    <p>Select all the text with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd>.</p>
-    
-    <pre>$ <kbd>ping mozilla.org</kbd>
-    <samp>PING mozilla.org (63.245.215.20): 56 data bytes
-    64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms</samp></pre>
-</body>
-```
-![image](https://user-images.githubusercontent.com/76677629/138656281-e2498e8a-d6e3-4920-9dae-e6d4be1a7785.png)
-
-
-# 하이퍼링크 설정
-## 글자에 링크 설정
+## 링크
+### 링크(Link)
 ```
 *URL 방식*
 <body>
-    <a href="https://www.naver.com" target="_blank">네이버</a> -> 새 창
-    <a href="https://www.daum.net" target="_self">다음</a> -> 현재 창(기본)
+    <a href="https://www.naver.com" target="_blank">새 창</a> -> 새 창이나 새 탭
+    <a href="https://www.naver.com" target="_self">현재 프레임</a> -> 현재 프레임(frame) => 기본
+    <a href="https://www.naver.com" target="_parent">부모 프레임</a> -> 부모 프레임
+    <a href="https://www.naver.com" target="_top">가장 상위 프레임</a> -> 현재 창의 가장 상위 프레임
+    <a href="https://www.naver.com" target="myframe">myframe</a> -> 지정된 프레임
+    
+    <iframe name="myframe" style="width:50%; height:330px"></iframe>
 </body>
 
 *path 방식*
@@ -373,20 +369,12 @@
     <a href="https://www.naver.com" title="네이버홈페이지" target="_blank">네이버</a>
 </body>
 -> 마우스를 올렸을 때 '네이버홈페이지'라는 문구가 뜬다.
+-> **축약형 표현** 방식도 가능
 ```
 ![image](https://user-images.githubusercontent.com/76677629/138651442-071aa767-51e0-40f7-b6d2-37a00f045106.png)
 ![image](https://user-images.githubusercontent.com/76677629/138041870-30bcb188-af35-4370-b852-15916ff87df0.png)
 
-## 링크 설정 글자색 바꾸기
-```
-<body>
-    <a href="https://www.naver.com"><font color="red">네이버</font></a>
-    <a href="https://www.daum.net"><font color="green">다음</font></a>
-</body>
-```
-![image](https://user-images.githubusercontent.com/76677629/138042540-44f3adbc-0539-4a26-bc1b-e864bdf76326.png)
-
-## 내부링크
+### 내부링크(북마크)
 ```
 <body>
     <!-- 상단 책갈피 위치 지정 -->
@@ -408,42 +396,15 @@
 ```
 ![image](https://user-images.githubusercontent.com/76677629/138043505-57263253-b69f-44de-9969-d1cd24f3382a.png)
 
-## 인용구
+## 이미지
+## 이미지 삽입
 ```
 <body>
-    <p>According to the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
-    <cite>MDN blockquote page</cite></a>:
-    </p>
-    
-    <blockquote cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
-        <p>The <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or <em>HTML Block
-        Quotation Element</em>) indicates that the enclosed text is an extended quotation.</p>
-    </blockquote>
-    
-    <p>The quote element — <code>&lt;q&gt;</code> — is <q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">intended
-    for short quotations that don't require paragraph breaks.</q> -- <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">
-    <cite>MDN q page</cite></a>.</p>
-</body>
-```
-![image](https://user-images.githubusercontent.com/76677629/138655735-f2854710-67bc-40cc-824e-d015be619df7.png)
-
-
-# 멀티미디어 삽입
-## 웹 페이지에 그림 삽입
-```
-<body>
-  <img src="xx.jpg" width="200" height="200">
-  <img src="이미지 경로[URL]" width="너비" height="높이" alt="풍선 도움말" border="그림 테두리">
+  <img src="이미지 경로[URL]" style="width:너비; height:높이; alt:대체문자열; border:그림 테두리">
 </body>
 => 이미지 경로는 상대경로, 절대경로 모두 가능
 ```
 ![image](https://user-images.githubusercontent.com/76677629/138194838-61e5196b-af18-4acf-b7de-e6302dd0dd35.png)
-
-## 웹 페이지 배경 그림 삽입
-```
-<body background="xx.jpg">
-</body>
-```
 
 ## 그림에 링크 설정
 ```
@@ -462,73 +423,96 @@
 </body>
 ```
 
-## 그림 주변 여백 설정
+## 리스트
+### 순서 없는 리스트
 ```
 <body>
-    <img src="img.jpg" width="200" height="200" hspace="100" vspace="50" border="1">
-</body>
-=> hspace : 좌우 여백
-=> vspace : 상하 여백
-```
-![image](https://user-images.githubusercontent.com/76677629/138195918-003483fe-809d-43db-9df9-d339b92b5a03.png)
+  <p>검정색 작은 원 모양 (기본설정)</p>
+	<ul>
+		<li>사과</li>
+		<li>멜론</li>
+		<li>바나나</li>
+	</ul>
 
-## 그림에 말풍선 추가
-```
-<body>
-    <img src="img.jpg" alt="HTML, CSS, JavaScript" width="200" height="200" border="1">
-</body>
-```
-![image](https://user-images.githubusercontent.com/76677629/138196133-69bd3309-74a9-48d2-8844-c083185778b1.png)
+	<p>흰색 작은 원 모양</p>
+	<ul style="list-style-type: circle">
+		<li>수박</li>
+		<li>참외</li>
+		<li>옥수수</li>
+	</ul>
 
-## 그림과 글자 위치
-```
-<body>
-    <p><img src="img.jpg" width="200" height="200" align="top"><font>top 이미지</font></p>
-    <p><img src="img.jpg" width="200" height="200" align="middle"><font>middle 이미지</font></p>
-    <p><img src="img.jpg" width="200" height="200" align="bottom"><font>bottom 이미지</font></p>
-    <p><img src="img.jpg" width="200" height="200" align="left"><font>left 이미지</font></p>
-    <br><br><br><br><br><br><br>
-    <p><img src="img.jpg" width="200" height="200" align="right"><font>right 이미지</font></p>
+	<p>검정색 사각형 모양</p>
+	<ul style="list-style-type: square">
+		<li>감자</li>
+		<li>상추</li>
+		<li>고구마</li>
+	</ul>
 </body>
 ```
-![image](https://user-images.githubusercontent.com/76677629/138196638-5626a0f5-9fc3-4e9d-b4a2-9199725ec71e.png)
+![image](https://user-images.githubusercontent.com/76677629/138831222-d4c7ba85-23a1-4bbe-b742-b75bb666243b.png)
 
-## 그림 일부분에만 링크 설정
+## 순서 있는 목록
 ```
 <body>
-    <img src="image.jpg" width="500" height="300" usemap="#Map">
-        <Map name="Map">
-            <area shape="rect" coords="205,100,270,140" href="#"> -> 사각형
-            <area shape="circle" coords="430,260,40" href="#"> -> 원형
-            <area shape="poly" coords="10,50,90,50,90,70,130,70,130,100,10,99" href="#"> -> 다각형
-        </Map>
+    <p>숫자 (기본설정)</p>
+		<ol>
+			<li>사과</li>
+			<li>멜론</li>
+			<li>바나나</li>
+		</ol>
+
+	<p>영어 대문자</p>
+		<ol style="list-style-type: upper-alpha">
+			<li>수박</li>
+			<li>참외</li>
+			<li>옥수수</li>
+		</ol>
+
+	<p>영어 소문자</p>
+		<ol style="list-style-type: lower-alpha">
+			<li>감자</li>
+			<li>상추</li>
+			<li>고구마</li>
+		</ol>
+
+	<p>로마자 대문자</p>
+		<ol style="list-style-type: upper-roman">
+			<li>오이</li>
+			<li>배추</li>
+			<li>시금치</li>
+		</ol>
+		
+	<p>로마자 소문자</p>
+		<ol style="list-style-type: lower-roman">
+			<li>고추</li>
+			<li>호박</li>
+			<li>양파</li>
+		</ol>
 </body>
 ```
+![image](https://user-images.githubusercontent.com/76677629/138831436-2b7f47b1-69e8-48d2-abdb-997fb0959512.png)
 
-## 배경음악 설정
+## 정의 리스트(description list)
 ```
 <body>
-  <bgsound src="URL" loop="반복횟수">
+    <dl>
+        <dt>html</dt>
+        <dd>태그로 나타냄</dd>
+        <dt>html 태그</dt>
+        <dd>input</dd>
+        <dd>button</dd>
+        <dd>div</dd>
+      </dl>
 </body>
-=> loop : -1이나 infinite 입력 시 무한 반복
 ```
+![image](https://user-images.githubusercontent.com/76677629/138831763-4d074aed-7853-4cd4-8014-04c4ffc5ee57.png)
 
-## 웹페이지에 멀티미디어 삽입
+## 테이블
+### 테이블(Table)
 ```
 <body>
-  <embed src="URL" autostart="true/false" hidden="true/false" loop="true/false" width="너비" heignt="높이">
-</body>
-autostart: true(자동재생), false(재생 버튼으로 재생)
-hidden: 플레이 컨트롤러 true(표시), false(숨김)
-loop: true(무한 반복), false(숨김)
-```
-
-# 테이블 삽입과 편집
-## 테이블 삽입
-```
-<body>
-    <table border="1">
-        <tr>
+    <table>
+        <tr style="background-color:lightgrey">
             <td>1행 1열</td>
             <td>1행 2열</td>
         </tr>
@@ -539,7 +523,7 @@ loop: true(무한 반복), false(숨김)
     </table>
 </body>
 ```
-![image](https://user-images.githubusercontent.com/76677629/138198156-76f32313-d326-4f2c-ba16-7489deacb22e.png)
+![image](https://user-images.githubusercontent.com/76677629/138832475-62188ae7-941a-4e3e-a79c-b0b5052aa2f3.png)
 
 ## 테이블 크기 바꾸기
 ```
@@ -635,6 +619,169 @@ loop: true(무한 반복), false(숨김)
 </body>
 ```
 ![image](https://user-images.githubusercontent.com/76677629/138223595-4e3c90d6-2102-4649-a87c-bf7d84cad0b7.png)
+
+
+
+
+
+
+
+
+
+## css, JavaScript 적용
+```
+<head> 
+  <link rel="stylesheet" href="my-css-file.css">
+</head>
+<body>
+  <script src="my-js-file.js"></script>
+</body>
+```
+
+
+
+# 텍스트 입력과 편집
+## 글씨체 바꾸기
+```
+<body>
+  <font face="굴림">굴림체</font>
+  <font face="돋움">돋움체</font>
+  <font face="궁서">궁서체</font>
+  <font face="바탕">바탕체</font>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138040006-ef063ba8-c6c3-42b7-8e2c-44d122d508d8.png)
+
+
+
+## 중첩 리스트
+```
+<body>
+    <ul>
+        <li type="circle">빈 원형</li>
+        <li type="disc">검은색 원형</li>
+        <ol>
+            <li>첫번째</li>
+            <li>두번째</li>
+            <li>세번째</li> 
+        </ol>
+        <li type="square">검은색 사각형</li>
+    </ul>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138648900-496ddf10-634a-4c9e-a4b7-77a666831f31.png)
+
+
+
+
+## 컴퓨터 코드 나타내기
+```
+<body>
+    <pre><code>var para = document.querySelector('p');
+
+    para.onclick = function() {
+        alert('Owww, stop poking me!');
+    }</code></pre>
+    
+    <p>You shouldn't use presentational elements like <code>&lt;font&gt;</code> and <code>&lt;center&gt;</code>.</p>
+    
+    <p>In the above JavaScript example, <var>para</var> represents a paragraph element.</p>
+    
+    
+    <p>Select all the text with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd>.</p>
+    
+    <pre>$ <kbd>ping mozilla.org</kbd>
+    <samp>PING mozilla.org (63.245.215.20): 56 data bytes
+    64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms</samp></pre>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138656281-e2498e8a-d6e3-4920-9dae-e6d4be1a7785.png)
+
+
+
+# 하이퍼링크 설정
+
+
+## 링크 설정 글자색 바꾸기
+```
+<body>
+    <a href="https://www.naver.com"><font color="red">네이버</font></a>
+    <a href="https://www.daum.net"><font color="green">다음</font></a>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138042540-44f3adbc-0539-4a26-bc1b-e864bdf76326.png)
+
+# 멀티미디어 삽입
+
+
+## 웹 페이지 배경 그림 삽입
+```
+<body background="xx.jpg">
+</body>
+```
+
+
+
+## 그림 주변 여백 설정
+```
+<body>
+    <img src="img.jpg" width="200" height="200" hspace="100" vspace="50" border="1">
+</body>
+=> hspace : 좌우 여백
+=> vspace : 상하 여백
+```
+![image](https://user-images.githubusercontent.com/76677629/138195918-003483fe-809d-43db-9df9-d339b92b5a03.png)
+
+## 그림에 말풍선 추가
+```
+<body>
+    <img src="img.jpg" alt="HTML, CSS, JavaScript" width="200" height="200" border="1">
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138196133-69bd3309-74a9-48d2-8844-c083185778b1.png)
+
+## 그림과 글자 위치
+```
+<body>
+    <p><img src="img.jpg" width="200" height="200" align="top"><font>top 이미지</font></p>
+    <p><img src="img.jpg" width="200" height="200" align="middle"><font>middle 이미지</font></p>
+    <p><img src="img.jpg" width="200" height="200" align="bottom"><font>bottom 이미지</font></p>
+    <p><img src="img.jpg" width="200" height="200" align="left"><font>left 이미지</font></p>
+    <br><br><br><br><br><br><br>
+    <p><img src="img.jpg" width="200" height="200" align="right"><font>right 이미지</font></p>
+</body>
+```
+![image](https://user-images.githubusercontent.com/76677629/138196638-5626a0f5-9fc3-4e9d-b4a2-9199725ec71e.png)
+
+## 그림 일부분에만 링크 설정
+```
+<body>
+    <img src="image.jpg" width="500" height="300" usemap="#Map">
+        <Map name="Map">
+            <area shape="rect" coords="205,100,270,140" href="#"> -> 사각형
+            <area shape="circle" coords="430,260,40" href="#"> -> 원형
+            <area shape="poly" coords="10,50,90,50,90,70,130,70,130,100,10,99" href="#"> -> 다각형
+        </Map>
+</body>
+```
+
+## 배경음악 설정
+```
+<body>
+  <bgsound src="URL" loop="반복횟수">
+</body>
+=> loop : -1이나 infinite 입력 시 무한 반복
+```
+
+## 웹페이지에 멀티미디어 삽입
+```
+<body>
+  <embed src="URL" autostart="true/false" hidden="true/false" loop="true/false" width="너비" heignt="높이">
+</body>
+autostart: true(자동재생), false(재생 버튼으로 재생)
+hidden: 플레이 컨트롤러 true(표시), false(숨김)
+loop: true(무한 반복), false(숨김)
+```
 
 # 셀 속성 설정과 변경
 ## 테이블 셀 크기 지정
