@@ -403,7 +403,79 @@ function <외부 함수>() {
 </script>
 ```
 
+# Chapter6 객체
+- 속성 : 객체가 가진 값
+- 메서드 : 객체가 가진 속성 중 함수 자료형인 것
+## 6.1 객체 개요
+- **코드 6-3 객체 생성**
+```
+<script>
+  // 변수 선언
+  var product = {
+    제품명: '7D 건조 망고',
+    유형: '당절임',
+    성분: '망고, 설탕, 메타중아황산나트륨, 치자황색소',
+    원산지: '필리핀'
+  };
+</script>
+```
+- 객체의 요소에 접근하기
+  - 방법1   
+    - product['제품명'] -> '7D 건조 망고'
+    - product['유형'] -> '당절임'
+    - product['성분'] -> '망고, 설탕, 메타중아황산나트륨, 치자황색소'
+    - product['원산지'] -> '필리핀' 
+  - 방법2 -> 더 많이 사용
+    - product.제품명 -> '7D 건조 망고'
+    - product.유형 -> '당절임'
+    - product.성분 -> '망고, 설탕, 메타중아황산나트륨, 치자황색소'
+    - product.원산지 -> '필리핀' 
 
+## 6.2 속성과 메서드
+- 배열 내부에 있는 값 : 요소(element)
+- 객체 내부에 있는 값 : 속성(property)
+- **코드 6-5 객체의 속성이 가질 수 있는 자료형**
+```
+var object = {
+  number: 123,
+  string: 'RintIanTta',
+  boolean: true,
+  array: [52, 273, 103, 32],
+  method: function() {
+  }
+};
+```
+
+- **코드 6-6 속성과 메서드의 구분**
+```
+<script>
+  // 변수 선언
+  var person = {
+    name: '윤인성',
+    eat: function(food) {}
+  };
+  
+  // 메서드 호출
+  person.eat();
+</script>
+```
+
+- 자기 자신이 가진 속성 : this 로 표시
+- **코드 6-7 this 키워드**
+```
+<script>
+  // 변수 선언
+  var person = {
+    name: '윤인성',
+    eat: function (food) {
+      alert(this.name + '이 ' + food + '울/를 먹습니다.');
+    }
+  };
+  
+  // 메서드 호출
+  person.eat('밥'); // 윤인성이 밥을/를 먹습니다.
+</script>
+```
 
 
 # Part2 jQuery
