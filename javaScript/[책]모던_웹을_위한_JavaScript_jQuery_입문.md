@@ -477,6 +477,259 @@ var object = {
 </script>
 ```
 
+# Chapter8 기본 내장 객체
+## 8.4 String 객체
+### 8.4.1 생성
+- **코드 8-17 String 객체 생성**
+```
+<script>
+  // 변수 선언
+  // 방법1
+  var stringFromLiteral = 'Hello World..!';
+  
+  // 방법2
+  var stringFromConstructor = new String('Hello World..!');
+  
+  // 변수의 자료형 출력
+  var output = '';
+  output += typeof (stringFromLiteral) + '\n'; // string
+  output += typeof (stringFromConstructor); // object
+  alert(output);
+</script>
+```
+
+### 8.4.2 기본 속성과 메서드
+- **String 객체의 속성**
+  - length : 문자열을 길이를 나타냄
+  ```
+  <script>
+    // 변수 선언
+    var characters = prompt('사용할 비밀번호를 입력해주세요.',  '6글자 이상');
+    
+    // 출력
+    if (characters.length < 6) {
+      alert('6글자 이상으로 입력하세요.');
+    } else {
+      alert('잘했어요!');
+    }
+  </script>
+  ```
+
+- **String 객체의 메서드**
+  - charAt(position) : position에 위치하는 문자를 리턴
+  - charCodeAt(position) : position에 위치하는 문자의 유니코드 번호를 리턴
+  - concat(args) : 매개변수로 입력한 문자열을 이어서 리턴
+  - indexOf(searchString, position) : 앞에서부터 일치하는 문자열의 위치를 리턴
+  - lastIndexOf(searchString, position) : 뒤에서부터 일치하는 문자열의 위치를 리턴
+  - match(regExp) : 문자열 안에 regExp가 있는지 확인
+  - replace(regExp, replacement) : repExp를 replacement로 바꾼 뒤 리턴
+  - search(regExp) : repExp와 일치하는 문자열의 위치를 리턴
+  - slice(start, end) : 특정 위치의 문자열을 추출해 리턴
+  - split(separator, limit) : separator로 문자열을 잘라서 배열을 리턴
+  - substr(start, count) : start부터 count만큼 문자열을 잘라서 리턴
+  - substring(start, end) : start부터 end까지 문자열을 잘라서 리턴
+  - toLowerCase() : 문자열을 소문자로 바꾸어 리턴
+  - toUpperCase() : 문자열을 대문자로 바꾸어 리턴
+
+- **코드 8-19 잘못된 String 객체의 메서드 사용**
+```
+<script>
+  // 변수 선언
+  var string = 'abcdefg';
+  
+  // 출력
+  string.toUpperCase();
+  alert(string); // abcdefg
+</script>
+```
+- **코드 8-20 올바른 String 객체의 메서드 사용**
+```
+<script>
+  // 변수 선언
+  var string = 'abcdefg';
+  
+  // 출력
+  string = string.toUpperCase();
+  alert(string); // ABCDEFG
+</script>
+```
+
+## 8.5 Array 객체
+### 8.5.1 생성
+- **Array 생성자 함수**
+  - Array() : 빈 배열을 만든다.
+  - Array(number) : 매개변수만큼의 크기를 가지는 배열을 만든다.
+  - Array(any, ... , any) : 매개변수를 배열로 만든다.
+  ```
+  <script>
+    // 변수 선언
+    var array1 = [52, 273, 103, 57, 32];
+    var array2 = new Array();
+    var array3 = new Array(10);
+    var array4 = new Array(52, 273, 103, 57, 32);
+  </script>
+  ```
+  
+### 8.5.2 속성과 메서드
+- **Array 객체의 속성**
+  - length : 요소의 개수를 알아낸다.
+  ```
+  <script>
+    // 변수 선언
+    var array = ['A', 'B', 'C', 'D'];
+    
+    // 출력
+    var output = '';
+    
+    for (var i = 0; i < array.length; i++) {
+      output += i + ' : ' + array[i] + '\n';
+    }
+    
+    alert(output);
+  </script>
+  ```
+![image](https://user-images.githubusercontent.com/76677629/144199633-97570281-38ce-4ed8-8006-a148f2d1371a.png)
+
+- **Array 객체의 메서드**
+  - concat() : 매개변수로 입력한 배열의 요소를 모두 합쳐 배열을 만들어 리턴
+  - join() : 배열 안의 모든 요소를 문자열로 만들어 리턴
+  - pop() : 배열의 마지막 요소를 제거하고 리턴
+  - push() : 배열의 마지막 부분에 새로운 요소를 추가
+  - reverse() : 배열의 요소 순서를 뒤집는다.
+  - slice() : 요소의 지정한 부분을 리턴
+  - sort() : 배열의 요소를 정렬 (문자열 오름차순 정렬)
+  - splice() : 요소의 지정한 부분을 삭제하고 삭제한 요소를 리턴
+
+### 8.5.3 정렬
+- **오름차순 정렬**
+  ```
+  function (left, right) {
+    return left - right;
+  }
+  ```
+ - **내림차순 정렬**
+   ```
+   function (left, right) {
+     return right -left;
+   }
+   ```
+ 
+- **코드 8-27 sort() 메서드의 정렬 방식 지정**
+```
+<script>
+  // 변수 선언하고 정렬
+  var array = [52, 273, 103, 32];
+  array.sort(function (left, right) {
+    return left - right;
+  });
+  
+  // 출력
+  alert(array);
+</script>
+```
+
+- **코드 8-28 학생 성적 정렬**
+```
+<script>
+  // 생성자 함수 선언
+  function Student(name, korean, math, english, science) {
+    // 속성
+    this.이름 = name;
+    this.국어 = korean;
+    this.수학 = math;
+    this.영어 = english;
+    this.과학 = science;
+    
+    // 메서드
+    this.getSum = function () {
+      return this.국어 + this.수학 + this.영어 + this.과학;
+    };
+    
+    this.getAverage = function () {
+      return this.getSum() / 4;
+    };
+    
+    this.toString = function () {
+      return this.이름 + '\t' + this.getSum() + '\t' + this.getAverage();
+    };
+  }
+  
+  // 학생 정보 배열을 만든다.
+  var students = [];
+  students.push(new Student('윤하린', 96, 98, 92, 98));
+  students.push(new Student('윤명월', 92, 100, 80, 94));
+  
+  // 정렬하고 1등부터 3등까지만 배열에 남겨둔다.
+  students.sort(function (left, right) {
+    return right.getSum() - left.getSum();
+  });
+  students = students.slice(0, 3);
+  
+  // 출력
+  var output = '이름\t총점\t평균\n';
+  for (var i in students) {
+    output += students[i].toString() + '\n';
+  }
+  alert(output);
+</script>
+```
+
+### 8.5.4 요소 제거
+- **코드 8-31 Array 객체의 remote() 메서드**
+```
+// Array 생성자 함수의 프로토타입에 remote() 메서드 추가
+Array.prototype.remove = function (index) {
+  this.splice(index, 1);
+}
+```
+
+- **코드 8-32 잘못된 Array 객체의 요소 제거**
+```
+<script>
+  // Array 생성자 함수의 프로토타입에 remove() 메서드 추가
+  Array.prototype.remove = function (index) {
+    this.splice(index, 1);
+  }
+
+  // 변수 선언
+  var aray = [52, 273, 103, 32, 274, 129];
+  
+  // 반복문과 조건문으로 100보다 큰 요소 제거
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] > 100) {
+      array.remove[i];
+    }
+  }
+  
+  // 출력
+  alert(array); // 인덱스가 앞당겨지기 때문에 잘못 삭제된다.
+</script>
+```
+
+- **코드 8-33 올바른 Array 객체의 요소 제거**
+- 역 for 반복문을 사용해야 한다.
+```
+<script>
+  // Array 생성자 함수의 프로토타입에 remove() 메서드 추가
+  Array.prototype.remove = function (index) {
+    this.splice(index, 1);
+  }
+
+  // 변수 선언
+  var aray = [52, 273, 103, 32, 274, 129];
+  
+  // 반복문과 조건문으로 100보다 큰 요소 제거
+  for (var i = array.length - 1; i >= 0; i--) {
+    if (array[i] > 100) {
+      array.remove(i);
+    }
+  }
+  
+  // 출력
+  alert(array);
+</script>
+```
+
 
 # Part2 jQuery
 # Chaper13 기본
