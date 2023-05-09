@@ -1,3 +1,3 @@
-var number = 10;
+var number = 100;
 
 export default number;
