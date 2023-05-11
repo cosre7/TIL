@@ -1,7 +1,8 @@
 # 순수 자바스크립트로 PWA 만들기
 ## 목차
 [1. 웹앱 매니페스트 각 요소의 의미](#1-웹앱-매니페스트-각-요소의-의미)<br>
-[2. 메인 화면 작성하기](#2-메인-화면-작성하기)
+[2. 메인 화면 작성하기](#2-메인-화면-작성하기)<br>
+[3. 서비스 워커 만들고 실행하기](#3-서비스-워커-만들고-실행하기)<br>
 ### 1. 웹앱 매니페스트 각 요소의 의미
 ```
 // manifest.json
@@ -74,3 +75,75 @@
 ```
 <link rel="manifest" href="manifest.json">
 ```
+
+### 3. 서비스 워커 만들고 실행하기
+```
+PWA의 강력한 능력은 서비스 워커 덕분이다.
+```
+- 서비스 워커는 브라우저와 분리되어 독립해서 실행될 수 있다.
+- 캐시, 푸시알림, 웹 API와 연동 등의 다양한 기능을 별도 수행할 수 있다.
+```
+// 캐시 제목과 캐시할 파일 선언
+const sCacheName = 'hello-pwa'; // 캐시 제목 선언
+const aFilesToCache = [         // 캐시할 파일 선언
+    './', './index.html', './manifest.json', './images/hello-pwa.png'
+];
+// 서비스 워커 설치하고 캐시 파일 저장
+self.addEventListener('install', pEvent => {
+    console.log('서비스 워커 설치함!');
+    pEvent.waitUntil(
+        caches.open(sCacheName)
+        .then(pCache => {
+            console.log('파일을 캐시에 저장함!');
+            return pCache.addAll(aFilesToCache);
+        })
+    )
+});
+// 고유 번호를 할당받은 서비스 워커 작동
+self.addEventListener('activate', pEvent => {
+    console.log('서비스 워커 동작 시작됨!');
+});
+// 데이터 요청을 받으면 네트워크 또는 캐시에게 찾아 반환
+self.addEventListener('fetch', pEvent => {
+    pEvent.respondWith(
+        caches.match(pEvent.request)
+        .then(response => {
+            if (!response) {
+                console.log('네트워크에서 데이터 요청!', pEvent.request)
+                return fetch(pEvent.request);
+            }
+            console.log('캐시에서 데이터 요청!', pEvent.request)
+            return response;
+        }).catch(err => console.log(err))
+    );
+});
+```
+#### 캐시 제목과 캐시할 파일 선언
+- PWA가 오프라인에서도 제대로 동작하려면 필요한 파일을 서비스 워커가 캐시에 저장하도록 해야 한다.
+
+#### 서비스 워커의 세 가지 주요 이벤트
+|이벤트|설명|용도|
+|-|-|-|
+|install|서비스 워커가 처음 설치될 때 실행한다(앱 설치 시 실행)|캐시 파일 저장|
+|activate|서비스 워커 설치가 끝나면 실행한다. 서비스 워커의 업데이트 작업을 담당한다|기존 캐시 제거|
+|fetch|서비스 워커가 설치된 다음 실행될 때 실제 작업할 내용을 여기에 작성한다|브라우저가 서버에 HTTP를 요청했을 때 오프라인 상태면 캐시 파일 읽기|
+
+#### 서비스 워커 설치 및 캐시 파일 저장 - install 이벤트
+- 서비스 워커의 첫 번째 생애 주기
+- PWA를 설치하는 단계
+
+#### 서비스 워커 업데이트 - activate 이벤트
+- 서비스 워커의 두 번째 생애 주기
+- 서비스 워커가 고유한 ID를 발급받아 브라우저에 성공적으로 등록되면 동작
+- 서비스 워커 설치 후 업데이트 등의 이유로 캐시 제목이 변경되면 install 이벤트가 처음부터 다시 발생한다.
+    - 개발 단계에서는 `개발자 도구` - `Application` - `Update on reload` 체크 후 새로고침을 하면 기존의 서비스 워커 ID를 제거하고 새로운 ID를 부여해 install 이벤트부터 새로 시작한다.
+- 앱을 업데이트하면 서비스 워커도 새로운 내용으로 교체해야 하는 데 이 때 호출되는 것이 activate 이벤트이다. 
+
+#### 오프라인 전환할 때 동작 - fetch 이벤트
+- 서비스 워커의 마지막 생애 주기
+- 대표적으로 브라우저에서 새로 고침 누를 때 발생하는 이벤트
+    - 온라인 상태 : 필요한 파일을 서버에서 가져옴
+    - 오프라인 상태 : 필요한 파일을 캐시에서 가져옴
+
+
+
