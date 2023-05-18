@@ -15,17 +15,17 @@ import java.util.Timer
 import kotlin.concurrent.schedule
 
 // 함수를 정의한다, 선언한다
-fun sayHello() {
-    println("안녕? 난 정대리야")
+fun sayHello(name: String = "이름없음") {
+    println("안녕? 난 ${name}야")
     println("너는 누구니?")
 }
 
 // 라면을 끓이는 함수
-fun cookRamen() {
+fun cookRamen(ramenKind: String = "일반") {
     println("주방에 간다")
     println("냄비를 선반에서 꺼낸다")
     println("냄비에 물 500ml를 담는다")
-    println("선반에서 라면 1봉지를 꺼낸다")
+    println("선반에서 $ramenKind 라면 1봉지를 꺼낸다")
     println("냄비에 불을 올려서 물을 끓인다")
 
     Timer().schedule(3000) {
@@ -36,17 +36,21 @@ fun cookRamen() {
 }
 
 // 무작위 수를 말하는 함수
-fun sayRandomNumber() {
-    val randomNumber = (1..999).random()
+fun sayRandomNumber(min: Int = 1, max: Int = 999) {
+    val randomNumber = (min..max).random()
     println("무작위 수는 $randomNumber 입니다!")
 }
 
 // 프로그램이 실행되는 메인함수
 fun main() {
     // sayHello 라는 함수를 호출, 즉 불렀다.
-    sayHello()
-    cookRamen()
-    sayRandomNumber()
+    sayHello() // name = "이름없음"
+    sayHello("정대리") // name = "정대리"
+//    cookRamen()
+//    cookRamen("짜장")
+    sayRandomNumber() // min = 1, max = 999
+    sayRandomNumber(max = 10) // min = 1, max = 10
+    sayRandomNumber(min = 999) // min = 999, max = 999
 }
 
 class MainActivity : ComponentActivity() {
