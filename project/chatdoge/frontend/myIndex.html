@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>운세보는 챗도지</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .chat-container {
+            max-width: 600px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-header {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .chat-message {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            max-height: 300px;
+            overflow-y: scroll;
+            display: inline-block;
+            word-break: break-word;
+        }
+        .chat-input {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #f2f2f2;
+        }
+
+        .chat-input input[type="text"] {
+            flex: 1;
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .chat-input button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            border: none;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .chat-message:nth-child(even) {
+            align-self: flex-start;
+            background-color: #e6e6e6;
+        }
+
+        .chat-message:nth-child(odd) {
+            align-self: flex-end;
+            background-color: #f2f2f2;
+        }
+
+        .assistant {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>Astrologer Chat</h1>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <p class="assistant">운세에 대해 물어봐주세요!</p>
+            <!-- Chat messages will be dynamically added here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const messageInput = document.getElementById('message-input');
+            const sendButton = document.getElementById('send-button');
+            const chatMessages = document.getElementById('chat-messages');
+
+            sendButton.addEventListener('click', sendMessage);
+
+            function sendMessage() {
+                const message = messageInput.value;
+                if (message.trim() !== '') {
+                    addMessage('user', message);
+                    messageInput.value = '';
+            
+                    // Make a fetch request to send the message to the API
+                    fetch('http://localhost:3000/fortuneTell', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ message: message }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle the response from the API
+                        // Assuming the response contains the astrologer's reply
+                        const astrologerReply = data.assistant;
+                        addMessage('assistant', astrologerReply);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
+            }
+            
+
+            function addMessage(sender, message) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('chat-message');
+
+                if (sender === 'assistant') {
+                    messageElement.classList.add('assistant');
+                } 
+                messageElement.innerHTML = `${message}`;
+                chatMessages.appendChild(messageElement);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        });
+
+    </script>
+</body>
+</html>
