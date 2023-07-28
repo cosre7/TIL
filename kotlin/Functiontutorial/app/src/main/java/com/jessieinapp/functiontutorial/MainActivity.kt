@@ -1,6 +1,7 @@
 package com.jessieinapp.functiontutorial
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -69,23 +70,31 @@ fun cookRamen(ramenKind: String = "일반") {
 fun getRandomNumber(min: Int = 1, max: Int = 999) = (min..max).random()
 
 // 프로그램이 실행되는 메인함수
-fun main() {
-    // sayHello 라는 함수를 호출, 즉 불렀다.
-    sayHello() // name = "이름없음"
-    sayHello("정대리") // name = "정대리"
-    cookRamen()
-//    cookRamen("짜장")
-//    sayRandomNumber() // min = 1, max = 999
-//    sayRandomNumber(max = 10) // min = 1, max = 10
-//    sayRandomNumber(min = 999) // min = 999, max = 999
-//    val randomNumber = getRandomNumber()
-//    println("main() - randomNumber: $randomNumber")
-//    println("main() - randomNumber: ${getRandomNumber()}")
-}
+//fun main() {
+//    // sayHello 라는 함수를 호출, 즉 불렀다.
+//    sayHello() // name = "이름없음"
+//    sayHello("정대리") // name = "정대리"
+//    cookRamen()
+////    cookRamen("짜장")
+////    sayRandomNumber() // min = 1, max = 999
+////    sayRandomNumber(max = 10) // min = 1, max = 10
+////    sayRandomNumber(min = 999) // min = 999, max = 999
+////    val randomNumber = getRandomNumber()
+////    println("main() - randomNumber: $randomNumber")
+////    println("main() - randomNumber: ${getRandomNumber()}")
+//}
 
 class MainActivity : ComponentActivity() {
+
+    companion object {
+        const val TAG : String = "람다"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Log.d("람다", "MainActivity - onCreate() called")
+
+        Log.d(TAG, "MainActivity - onCreate() called")
         setContent {
             FunctiontutorialTheme {
                 // A surface container using the 'background' color from the theme
