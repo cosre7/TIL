@@ -1,15 +1,7 @@
-const player = {
-    name : 'youjin',
-    points : 10,
-    fat : false
+function sayHello(nameOfPerson, age) {
+    console.log('hello my name is ' + nameOfPerson + ' and I\'m ' + age);
 }
 
-console.log(player);
-
-player.points = 20;
-
-console.log(player);
-
-player.lastName = 'potato';
-
-console.log(player);
+sayHello('nico', 10);
+sayHello('dal', 23);
+sayHello('lynn', 21);
