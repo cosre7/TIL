@@ -1,23 +1,17 @@
-const calculator = {
-    add: function(a, b) {
-        console.log(a + b);
-    },
-    minus: function(a, b) {
-        console.log(a - b);
-    },
-    times: function(a, b) {
-        console.log(a * b);
-    },
-    divide: function(a, b) {
-        console.log(a / b);
-    },
-    power: function(a, b) {
-        console.log(a**b);
-    }
-}
+const age = 96;
+// function calculateKrAge(ageOfForigner) {
+//     ageOfForigner + 2;
+// }
+// const krAge = calculateKrAge(age); // undefined
 
-calculator.add(10, 30);
-calculator.minus(10, 30);
-calculator.times(10, 30);
-calculator.divide(10, 30);
-calculator.power(10, 30);
+// function calculateKrAge(ageOfForigner) {
+//     return ageOfForigner + 2;
+// }
+// const krAge = calculateKrAge(age); // 98
+
+function calculateKrAge(ageOfForigner) {
+    ageOfForigner + 2;
+    return 'hello';
+}
+const krAge = calculateKrAge(age); // hello
+console.log(krAge);
