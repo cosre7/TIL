@@ -1,22 +1,23 @@
-function plus(firstNumber, secondNumber) {
-    console.log(firstNumber + secondNumber);
-}
-
-// firstNumber, secondNumber는 function 안에서만 존재한다
-// console.log(firstNumber); // not defined 에러
-
-function divide(a, b) { 
-    console.log(a / b);
-}
-plus(8, 60);
-divide(98, 20);
-
-const player = {
-    name: 'nico',
-    sayHello: function(otherPersonsName) {
-        console.log('hello ' + otherPersonsName + ' nice to meet you!');
+const calculator = {
+    add: function(a, b) {
+        console.log(a + b);
+    },
+    minus: function(a, b) {
+        console.log(a - b);
+    },
+    times: function(a, b) {
+        console.log(a * b);
+    },
+    divide: function(a, b) {
+        console.log(a / b);
+    },
+    power: function(a, b) {
+        console.log(a**b);
     }
 }
 
-console.log(player.name);
-player.sayHello('lynn');
+calculator.add(10, 30);
+calculator.minus(10, 30);
+calculator.times(10, 30);
+calculator.divide(10, 30);
+calculator.power(10, 30);
