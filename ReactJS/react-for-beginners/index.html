@@ -9,30 +9,26 @@
 <script type="text/babel">
     const rootDiv = document.getElementById("root");
     const root = ReactDOM.createRoot(rootDiv);
-    let counter = 0;
-    function countUp() {
-        counter = counter + 1;
-        render(); // 다시 렌더링해주는 단계를 반드시 거쳐야만 하는 상태 
+    function App() {
+        // const data = React.useState(0);
+        // const counter = data[0];
+        // const modifier = data[1];
+        const [counter, modifier] = React.useState(0);
+        return (
+            <div>
+                <h3>Total clicks: {counter}</h3>
+                <button>Click me</button>
+            </div>
+        );
+        // return (
+        //     <div>
+        //         <h3>Total clicks: 0</h3>
+        //         <h3>Total clicks: {data[0]}</h3>
+        //         <button>Click me</button>
+        //     </div>
+        // );
     }
-    function render() {
-        root.render(<Container />); 
-    }
-    const Container = () => (
-        <div>
-            <h3>Total clicks: {counter}</h3>
-            <button onClick={countUp}>Click me</button>
-        </div>
-    );
-    // 위와 같음 
-    // function Container() {
-    //     return (
-    //         <div>
-    //             <h3>Total clicks: {counter}</h3>
-    //             <button onClick={countUp}>Click me</button>
-    //         </div>
-    //     );
-    // }
     
-    render();
+    root.render(<App />); 
 </script>    
 </html>
