@@ -9,25 +9,30 @@
 <script type="text/babel">
     const rootDiv = document.getElementById("root");
     const root = ReactDOM.createRoot(rootDiv);
-    function Title(){
-        return (
-            <h3 id="title" onMouseEnter={() => console.log('mouse enter')}>
-                Hello I'm a title
-            </h3>
-        );
+    let counter = 0;
+    function countUp() {
+        counter = counter + 1;
+        render(); // 다시 렌더링해주는 단계를 반드시 거쳐야만 하는 상태 
     }
-    const Button = () => (
-        <button style={{backgroundColor: 'tomato'}} onClick={() => console.log('im clicked')}>
-            Click me
-        </button>
-    );
+    function render() {
+        root.render(<Container />); 
+    }
     const Container = () => (
         <div>
-            <Title /> 
-            <Button />
+            <h3>Total clicks: {counter}</h3>
+            <button onClick={countUp}>Click me</button>
         </div>
     );
+    // 위와 같음 
+    // function Container() {
+    //     return (
+    //         <div>
+    //             <h3>Total clicks: {counter}</h3>
+    //             <button onClick={countUp}>Click me</button>
+    //         </div>
+    //     );
+    // }
     
-    root.render(<Container />);
+    render();
 </script>    
 </html>
