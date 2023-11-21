@@ -10,23 +10,16 @@
     const rootDiv = document.getElementById("root");
     const root = ReactDOM.createRoot(rootDiv);
     function App() {
-        // const data = React.useState(0);
-        // const counter = data[0];
-        // const modifier = data[1];
-        const [counter, modifier] = React.useState(0);
+        const [counter, setCounter] = React.useState(0);
+        const onclick = () => {
+            setCounter(counter + 1);
+        }
         return (
             <div>
                 <h3>Total clicks: {counter}</h3>
-                <button>Click me</button>
+                <button onClick={onclick}>Click me</button>
             </div>
         );
-        // return (
-        //     <div>
-        //         <h3>Total clicks: 0</h3>
-        //         <h3>Total clicks: {data[0]}</h3>
-        //         <button>Click me</button>
-        //     </div>
-        // );
     }
     
     root.render(<App />); 
