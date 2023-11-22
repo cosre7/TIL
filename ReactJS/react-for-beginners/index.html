@@ -9,29 +9,21 @@
 <script type="text/babel">
     const rootDiv = document.getElementById("root");
     const root = ReactDOM.createRoot(rootDiv);
-    function SaveBtn() {
+    function Btn(props) {
+        console.log(props);
         return <button style={{
             backgroundColor : "tomato",
             color : "white",
             padding : "10px 20px",
             border : 0,
             borderRadius : 10
-        }}>Save Changes</button>
-    }
-    function ConfirmBtn() {
-        return <button style={{
-            backgroundColor : "tomato",
-            color : "white",
-            padding : "10px 20px",
-            border : 0,
-            borderRadius : 10
-        }}>Confirm</button>
+        }}>{props.banana}</button>
     }
     function App() {
         return (
             <div>
-                <SaveBtn />
-                <ConfirmBtn />
+                <Btn banana="Save Changes"/>
+                <Btn banana="Continue"/>
             </div>
         ); 
     }
