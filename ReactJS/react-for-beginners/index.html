@@ -9,20 +9,22 @@
 <script type="text/babel">
     const rootDiv = document.getElementById("root");
     const root = ReactDOM.createRoot(rootDiv);
-    function Btn({banana}) {
+    function Btn({banana, big}) {
+        console.log(banana, big)
         return <button style={{
             backgroundColor : "tomato",
             color : "white",
             padding : "10px 20px",
             border : 0,
-            borderRadius : 10
+            borderRadius : 10,
+            fontSize : big ? 18 : 16
         }}>{banana}</button>
     }
     function App() {
         return (
             <div>
-                <Btn banana="Save Changes"/>
-                <Btn banana="Continue"/>
+                <Btn banana="Save Changes" big={true}/>
+                <Btn banana="Continue" big={false}/>
             </div>
         ); 
     }
