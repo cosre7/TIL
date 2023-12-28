@@ -22,6 +22,7 @@ export default function Create() {
                     console.log(result);
                     const lastId = result.id;
                     router.push(`/read/${lastId}`);
+                    router.refresh();
                 })
         }}>
             <p>
