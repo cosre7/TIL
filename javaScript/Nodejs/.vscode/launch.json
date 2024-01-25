@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/chapter3/express-server/hello-express.js"
+            "program": "${workspaceFolder}/chapter3/express-server/refactoring-to-express.js"
         }
     ]
 }
