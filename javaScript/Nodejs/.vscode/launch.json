@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/chapter3/code3-3-implement-router.js"
+            "program": "${workspaceFolder}/chapter3/code3-4-implement-router2.js"
         }
     ]
 }
