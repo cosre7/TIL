@@ -29,7 +29,12 @@ function getResult(user) {
 
 function registerByPromise(user) {
     // 2) 비동기 호출이지만, 순서를 지켜서 실행
-    const result = saveDB(user).then(sendEmail).then(getResult).catch(error => new Error(error));
+    const result = saveDB(user)
+                    .then(sendEmail)
+                    .then(getResult)
+                    .catch(error => new Error(error))
+                    // 성공, 실패 여부에 관계없이 실행 
+                    .finally(() => console.log('완료'));
     // 3) 아직 완료되지 않았으므로 지연(pending) 상태
     console.log(result);
     return result;
