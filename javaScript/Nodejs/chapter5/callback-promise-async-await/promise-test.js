@@ -36,6 +36,9 @@ function registerByPromise(user) {
 }
 
 const myUser = {email: "andy@test.com", password: "1234", name: "andy"};
-const result = registerByPromise(myUser);
-// 결괏값이 Promise이므로 then() 메서드에 함수를 넣어서 결괏값을 볼 수 있음
-result.then(console.log);
+// const result = registerByPromise(myUser);
+// // 결괏값이 Promise이므로 then() 메서드에 함수를 넣어서 결괏값을 볼 수 있음
+// result.then(console.log);
+
+const allResult = Promise.all([saveDB(myUser), sendEmail(myUser), getResult(myUser)]);
+allResult.then(console.log);
