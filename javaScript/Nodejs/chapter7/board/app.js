@@ -10,5 +10,8 @@ app.set('views', __dirname + '/views'); // 3) 뷰 디렉터리를 view로 설정
 app.get('/', (req, res) => {
     res.render('home', {title: '테스트 게시판'});
 });
+app.get('/write', (req, res) => {
+    res.render('write', {title: '테스트 게시판'});
+});
 
 app.listen(3000);
