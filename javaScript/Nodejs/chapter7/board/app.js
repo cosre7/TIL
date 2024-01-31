@@ -5,9 +5,14 @@ const app = express();
 // 몽고디비 연결 함수
 const mongodbConnection = require("./configs/mongodb-connection");
 
-app.engine('handlebars', handlebars.engine()); // 1) 템플릿 엔진으로 핸들바 등록
-app.set('view engine', 'handlebars'); // 2) 웹 페이지 로드 시 사용할 템플릿 엔진 설정
-app.set('views', __dirname + '/views'); // 3) 뷰 디렉터리를 view로 설정
+app.engine(
+    'handlebars', 
+    handlebars.create({ // 핸들바 생성 및 엔진 반환 
+        helpers: require('./configs/hanclebars-helpers'),
+    }).engine,
+); 
+app.set('view engine', 'handlebars'); // 웹 페이지 로드 시 사용할 템플릿 엔진 설정
+app.set('views', __dirname + '/views'); // 뷰 디렉터리를 view로 설정
 
 // 4) 라우터 설정
 app.get('/', (req, res) => {
