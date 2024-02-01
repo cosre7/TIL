@@ -1,6 +1,12 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
+// 서비스 파일 로딩 
+const postService = require('./services/post-service');
 const app = express();
+
+// req.body와 POST 요청을 해석하기 위한 설정
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 // 몽고디비 연결 함수
 const mongodbConnection = require("./configs/mongodb-connection");
@@ -18,9 +24,19 @@ app.set('views', __dirname + '/views'); // 뷰 디렉터리를 view로 설정
 app.get('/', (req, res) => {
     res.render('home', {title: '테스트 게시판'});
 });
+// 쓰기 페이지 이동 
 app.get('/write', (req, res) => {
     res.render('write', {title: '테스트 게시판'});
 });
+//  글쓰기
+app.post('/write', async (req, res) => {
+    const post = req.body;
+    // 글쓰기 후 결과 반환
+    const result = await postService.writePost(collection, post);
+    // 생성된 도큐먼트의 _id를 사용해 상세페이지로 이동
+    res.redirect(`/detail/${result.insertedId}`);
+});
+// 상세페이지 
 app.get('/detail/:id', async (req, res) => {
     res.render('detail', {
         title: "테스트 게시판",
