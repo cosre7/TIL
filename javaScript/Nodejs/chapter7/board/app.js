@@ -20,9 +20,24 @@ app.engine(
 app.set('view engine', 'handlebars'); // 웹 페이지 로드 시 사용할 템플릿 엔진 설정
 app.set('views', __dirname + '/views'); // 뷰 디렉터리를 view로 설정
 
-// 4) 라우터 설정
-app.get('/', (req, res) => {
-    res.render('home', {title: '테스트 게시판'});
+// 라우터 설정
+// 리스트 페이지 
+app.get('/', async (req, res) => {
+    // 현재 페이지 데이터
+    const page = parseInt(req.query.page) || 1;
+    // 검색어 데이터
+    const search = req.query.search || "";
+    try {
+        // postService.list에서 글 목록과 페이지네이터를 가져옴
+        const [posts, paginator] = await postService.list(collection, page, search);
+
+        // 리스트 페이지 렌더링
+        res.render('home', {title: '테스트 게시판', search, paginator, posts});
+    } catch (err) {
+        console.error(err);
+        // 에러가 나는 경우 빈 값으로 렌더링 
+        res.render('home', {title: "테스트 게시판"});
+    }
 });
 // 쓰기 페이지 이동 
 app.get('/write', (req, res) => {
