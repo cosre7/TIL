@@ -36,17 +36,38 @@ const projectionOption = {
         "comments.password" : 0,
     },
 };
-
 // 글 상세 
 async function getDetailPost(collection, id) {
     // 몽고디비 Collection의 findOneAndUpdate() 함수를 사용
     // 게시글을 읽을 때마다 hits를 1 증가
     return await collection.findOneAndUpdate({_id: ObjectId(id)}, {$inc: {hits: 1}}, projectionOption);
 }
+// id와 password로 게시글 데이터 가져오기 
+async function getPostByIdAndPassword(collection, {id, password}) {
+    // findOne() 함수 사용
+    return await collection.findOne({_id: ObjectId(id), password: password}, projectionOption);
+}
+// id로 데이터 불러오기
+async function getPostById(collection, id) {
+    return await collection.findOne({_id: ObjectId(id)}, projectionOption);
+}
+// 게시글 수정
+async function updatePost(collection, id, post) {
+    const toUpdatePost = {
+        $set: {
+            ...post,
+        },
+    };
+    return await collection.updateOne({_id: ObjectId(id)}, toUpdatePost);
+}
+
 
 // require()로 파일을 임포트 시 외부로 노출하는 객체
 module.exports = {
     writePost,
     list,
-    getDetailPost
+    getDetailPost,
+    getPostById,
+    getPostByIdAndPassword,
+    updatePost,
 };
